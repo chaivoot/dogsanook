@@ -1,5 +1,6 @@
 ---
 // Prices shown on-site only (never in Google Business description — §9).
+import { site } from '../config/site';
 ---
 <section id="pricing" data-reveal style="background:#2A2521;color:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
   <div style="max-width:960px;margin:0 auto;">
@@ -12,7 +13,7 @@
         <p style="font-size:13.5px;color:rgba(251,248,241,.7);margin:0 0 18px;">~1.5–2 ชม. ที่บ้านคุณ</p>
         <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#F4C13C;">1,990</span><span style="font-size:14px;color:rgba(251,248,241,.6);">บาท</span></div>
         <div style="font-size:14px;color:rgba(251,248,241,.55);text-decoration:line-through;margin-bottom:22px;">ปกติ 3,000 บาท</div>
-        <a href="#line" style="margin-top:auto;display:block;text-align:center;background:transparent;color:#FBF8F1;font-weight:700;font-size:16px;padding:13px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.55);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.55)'">เริ่มจากครั้งแรก</a>
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="margin-top:auto;display:block;text-align:center;background:transparent;color:#FBF8F1;font-weight:700;font-size:16px;padding:13px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.55);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.55)'">เริ่มจากครั้งแรก</a>
       </div>
       <div style="position:relative;background:#FBF8F1;color:#20302F;border-radius:22px;padding:30px 28px;display:flex;flex-direction:column;box-shadow:0 24px 48px -20px rgba(0,0,0,.5);">
         <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#F4C13C;color:#20302F;font-weight:700;font-size:12px;padding:6px 16px;border-radius:999px;white-space:nowrap;">⭐ แนะนำ</div>
@@ -21,7 +22,7 @@
         <p style="font-size:13.5px;color:#7c7266;margin:0 0 18px;">แผนต่อเนื่อง เห็นผลจริงเป็นระบบ</p>
         <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#2A2521;">~11,900</span><span style="font-size:14px;color:#7c7266;">บาท</span></div>
         <div style="font-size:14px;color:#b0a595;text-decoration:line-through;margin-bottom:22px;">ปกติ 15,000 บาท</div>
-        <a href="#line" class="btn-gold" style="margin-top:auto;justify-content:center;font-size:16px;padding:14px;box-shadow:0 5px 0 #DFA714;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 3px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 5px 0 #DFA714'">จองคอร์สนี้</a>
+        <a href={site.lineUrl} target="_blank" rel="noopener" class="btn-gold" style="margin-top:auto;justify-content:center;font-size:16px;padding:14px;box-shadow:0 5px 0 #DFA714;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 3px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 5px 0 #DFA714'">จองคอร์สนี้</a>
       </div>
     </div>
     <p style="text-align:center;font-size:13.5px;color:rgba(251,248,241,.65);margin:26px 0 0;">ราคาสำหรับโซนที่ให้บริการ · สอบถามเพิ่มทาง LINE</p>
