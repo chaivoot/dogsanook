@@ -28,6 +28,10 @@ export const site = {
   lineOaId: '@dogsanook',
   lineUrl: 'https://line.me/R/ti/p/@dogsanook',
 
+  // Phone — for people who'd rather call than add LINE.
+  phone: '081-949-6389', // display form
+  phoneTel: '+66819496389', // tel: link (E.164)
+
   // TODO(owner): business hours (CLAUDE.md §10).
   hours: '',
 

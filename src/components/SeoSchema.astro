@@ -19,6 +19,14 @@ const schema = {
   logo: `${site.domain}${'/uploads/logo-gold-mark.png'}`,
   description:
     'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ',
+  telephone: site.phoneTel,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.phoneTel,
+    contactType: 'customer service',
+    areaServed: 'TH',
+    availableLanguage: ['th'],
+  },
   priceRange: '฿฿',
   areaServed: [...site.zones, ...site.zonesNearby].map((z) => ({
     '@type': 'Place',
