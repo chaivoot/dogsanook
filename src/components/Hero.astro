@@ -1,5 +1,9 @@
 ---
-import ImageSlot from './ImageSlot.astro';
+// Hero media = recall clip (mp4). Autoplay is started via JS only when the
+// visitor hasn't asked for reduced motion (CLAUDE.md §4); otherwise the
+// poster stays as a still image. muted+loop+playsinline for mobile autoplay.
+const heroVideo = '/uploads/dogsanook-recall-dog-training-bangkok.mp4';
+const heroPoster = '/uploads/PXL_20251214_144515964.jpg';
 ---
 <!-- H1 (single) — leads with game-based, not recall (CLAUDE.md §3/§9) -->
 <header id="top" style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(44px,7vw,80px) clamp(16px,4vw,48px) clamp(56px,8vw,96px);">
@@ -16,14 +20,34 @@ import ImageSlot from './ImageSlot.astro';
     </div>
     <div style="flex:1 1 380px;min-width:300px;">
       <div style="position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);border:3px solid rgba(244,193,60,.35);">
-        <ImageSlot
-          src="/uploads/PXL_20251214_144515964.jpg"
-          alt="มอมแมม (เชลตี้) วิ่งเข้าหาในโมเมนต์ recall จริง"
-          placeholder="คลิป recall — มอมแมมวิ่งเข้าหา (แนวตั้งได้ก่อน)"
-          loading="eager"
-        />
+        <video
+          id="heroVideo"
+          poster={heroPoster}
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="คลิป recall — มอมแมม (เชลตี้) วิ่งเข้าหา สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ"
+          style="width:100%;height:100%;object-fit:cover;display:block;"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div style="position:absolute;left:16px;bottom:16px;background:rgba(42,37,33,.82);backdrop-filter:blur(4px);color:#FBF8F1;font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;pointer-events:none;">▶ โมเมนต์ recall จริง</div>
       </div>
     </div>
   </div>
 </header>
+
+<script>
+  // Start the hero clip only when motion is welcome; reduced-motion visitors
+  // keep the still poster. Guards against browsers that block autoplay.
+  const v = document.getElementById('heroVideo') as HTMLVideoElement | null;
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (v && !reduce) {
+    v.play().catch(() => {
+      /* autoplay blocked — poster stays, no error */
+    });
+  }
+</script>
