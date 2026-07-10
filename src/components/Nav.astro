@@ -1,0 +1,15 @@
+---
+import { site } from '../config/site';
+---
+<nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,48px);background:rgba(251,248,241,.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(140,120,80,.14);">
+  <a href="/#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <img src="/uploads/mommam.png" alt="โลโก้ หมาสนุก — มอมแมม" width="48" height="48" style="width:48px;height:48px;border-radius:50%;display:block;" />
+    <span style="font-family:'Chonburi',serif;font-size:22px;color:#2A2521;line-height:1;">{site.name}</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(14px,3vw,26px);">
+    <a href="/blog" style="color:#2A2521;font-weight:600;font-size:15px;text-decoration:none;">บทความ</a>
+    <a href="/#line" class="btn-gold" style="font-size:15px;padding:11px 20px;box-shadow:0 4px 0 #DFA714;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 2px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 0 #DFA714'">
+      <span style="font-size:16px;">💬</span> แอด LINE
+    </a>
+  </div>
+</nav>

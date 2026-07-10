@@ -1,0 +1,98 @@
+---
+/*
+ * BaseLayout — <head> SEO, fonts, OG/Twitter, JSON-LD. Wraps every page.
+ */
+import '../styles/tokens.css';
+import SeoSchema from '../components/SeoSchema.astro';
+import { seo as defaultSeo, site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  /** Path only, e.g. "/blog" — resolved against site.domain for canonical/OG. */
+  path?: string;
+  includeBusinessSchema?: boolean;
+}
+const {
+  title = defaultSeo.title,
+  description = defaultSeo.description,
+  ogImage = defaultSeo.ogImage,
+  path = Astro.url.pathname,
+  includeBusinessSchema = false,
+} = Astro.props;
+
+const canonical = new URL(path, site.domain).href;
+const ogImageAbs = new URL(ogImage, site.domain).href;
+---
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={defaultSeo.keywords.join(', ')} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/uploads/logo-gold-mark.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:locale" content="th_TH" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <!-- Fonts (CLAUDE.md §4): Chonburi display, Sarabun body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chonburi&family=Sarabun:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    {includeBusinessSchema && <SeoSchema />}
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll-reveal (respects prefers-reduced-motion; CSS guarantees the
+         reduced-motion fallback so content is never hidden without JS). -->
+    <script>
+      const reduce =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        const els = Array.from(document.querySelectorAll('[data-reveal]'));
+        els.forEach((el) => {
+          const e = el as HTMLElement;
+          e.style.opacity = '0';
+          e.style.transform = 'translateY(28px)';
+          e.style.transition = 'opacity .7s ease, transform .7s ease';
+        });
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const e = entry.target as HTMLElement;
+                e.style.opacity = '1';
+                e.style.transform = 'none';
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

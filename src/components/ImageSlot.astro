@@ -1,0 +1,44 @@
+---
+/*
+ * ImageSlot — production replacement for the mockup's <image-slot>.
+ * Renders a real <img> when `src` is provided, otherwise a styled,
+ * captioned placeholder (so unfilled media slots read clearly and keep
+ * their aspect box). Every slot carries alt/caption text for SEO (§6).
+ */
+interface Props {
+  src?: string;
+  alt: string;
+  placeholder?: string;
+  loading?: 'lazy' | 'eager';
+  ratio?: string; // e.g. "4/5", "9/16" — sets the box when the parent doesn't
+  class?: string;
+}
+const {
+  src,
+  alt,
+  placeholder = 'เร็ว ๆ นี้',
+  loading = 'lazy',
+  ratio,
+  class: cls = '',
+} = Astro.props;
+const boxStyle = ratio ? `aspect-ratio:${ratio};` : '';
+---
+{src ? (
+  <img
+    src={src}
+    alt={alt}
+    loading={loading}
+    decoding="async"
+    class={`img-slot ${cls}`}
+    style={`width:100%;height:100%;object-fit:cover;${boxStyle}`}
+  />
+) : (
+  <div
+    class={`img-slot img-slot--empty ${cls}`}
+    role="img"
+    aria-label={alt}
+    style={`${boxStyle}width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;background:linear-gradient(135deg,#F2E9D8,#e7dcc6);color:#8a7f6b;font-size:14px;font-weight:600;line-height:1.5;`}
+  >
+    <span>{placeholder}</span>
+  </div>
+)}

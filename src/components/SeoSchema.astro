@@ -1,0 +1,46 @@
+---
+/*
+ * JSON-LD: LocalBusiness + Service (CLAUDE.md §6).
+ * A Service Area Business (no public storefront) serving Bangkok zones.
+ * areaServed / sameAs / priceRange kept in sync with src/config/site.ts.
+ */
+import { site } from '../config/site';
+
+const sameAs = Object.values(site.social);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.domain}/#business`,
+  name: site.name,
+  alternateName: site.nameEn,
+  url: site.domain,
+  image: `${site.domain}${'/uploads/logo-gold-mark.png'}`,
+  logo: `${site.domain}${'/uploads/logo-gold-mark.png'}`,
+  description:
+    'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ',
+  priceRange: '฿฿',
+  areaServed: [...site.zones, ...site.zonesNearby].map((z) => ({
+    '@type': 'Place',
+    name: `${z} ${site.city}`,
+  })),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.city,
+    addressCountry: 'TH',
+  },
+  sameAs,
+  makesOffer: {
+    '@type': 'Offer',
+    itemOffered: {
+      '@type': 'Service',
+      name: 'ฝึกสุนัขถึงบ้าน สไตล์เล่นไปฝึกไป',
+      serviceType: 'ครูฝึกสุนัขถึงบ้าน',
+      areaServed: site.zones.map((z) => `${z} ${site.city}`),
+    },
+    priceCurrency: 'THB',
+    price: String(site.pricing.firstSession.promo),
+  },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
