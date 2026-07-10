@@ -24,10 +24,9 @@ export const site = {
   zonesNearby: ['บางกะปิ', 'ศรีนครินทร์', 'มีนบุรี'],
   city: 'กรุงเทพฯ',
 
-  // TODO(owner): real LINE deep link (e.g. https://line.me/R/ti/p/@xxxx).
-  // Until filled, the in-page CTAs scroll to the Final CTA section (#line)
-  // exactly like the mockup, and the LINE button there uses this value.
-  lineUrl: '#',
+  // LINE Official Account = @dogsanook. Add-friend deep link.
+  lineOaId: '@dogsanook',
+  lineUrl: 'https://line.me/R/ti/p/@dogsanook',
 
   // TODO(owner): business hours (CLAUDE.md §10).
   hours: '',
