@@ -1,0 +1,28 @@
+---
+// H2 = search-intent copy (CLAUDE.md §6). Touches pain lightly, filters
+// out aggression cases (§7).
+const problems = [
+  { icon: '🗣️', title: 'เรียกไม่ยอมมา', body: 'เรียกจนเสียงแหบ น้องก็ยังทำเป็นไม่ได้ยิน' },
+  { icon: '🦮', title: 'ดึงสายจูงจนแขนจะหลุด', body: 'ออกไปเดินทีเหมือนถูกลากมากกว่าพาเดิน' },
+  { icon: '🐕', title: 'กระโดดใส่คน / ตื่นเต้นจนคุมไม่อยู่', body: 'มีแขกมาบ้านทีเป็นเรื่องทุกครั้ง' },
+  { icon: '🐶', title: 'ลูกหมาแรกรับ ไม่รู้จะเริ่มยังไง', body: 'อยากเริ่มให้ถูกตั้งแต่แรก ไม่อยากพลาด' },
+];
+---
+<section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+  <div style="max-width:1000px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 14px;color:#2A2521;">น้องเป็นแบบนี้อยู่ไหม?</h2>
+    <p style="font-size:17px;color:#5a5249;margin:0 auto 42px;max-width:46ch;">ไม่ต้องรู้สึกผิด เรื่องพวกนี้แก้ได้</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;text-align:left;">
+      {problems.map((p) => (
+        <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:18px;padding:22px 22px;">
+          <div style="font-size:26px;margin-bottom:8px;">{p.icon}</div>
+          <div style="font-weight:600;font-size:17px;">{p.title}</div>
+          <div style="font-size:14.5px;color:#7c7266;margin-top:4px;">{p.body}</div>
+        </div>
+      ))}
+    </div>
+    <div style="margin-top:38px;display:inline-block;background:#F2E9D8;border-radius:18px;padding:22px 30px;max-width:60ch;">
+      <p style="font-size:clamp(17px,2.4vw,21px);font-weight:600;color:#2A2521;margin:0;line-height:1.6;">ไม่ใช่หมาดื้อ — แค่ยังไม่มีใครสอนด้วยวิธีที่เขาเข้าใจ</p>
+    </div>
+  </div>
+</section>

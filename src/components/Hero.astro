@@ -1,0 +1,29 @@
+---
+import ImageSlot from './ImageSlot.astro';
+---
+<!-- H1 (single) — leads with game-based, not recall (CLAUDE.md §3/§9) -->
+<header id="top" style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(44px,7vw,80px) clamp(16px,4vw,48px) clamp(56px,8vw,96px);">
+  <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,56px);align-items:center;">
+    <div style="flex:1 1 380px;min-width:300px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px;margin-bottom:22px;">เล่นไปฝึกไป · ไม่ดุ ไม่บังคับ</div>
+      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(34px,6vw,60px);line-height:1.18;margin:0 0 20px;color:#FBF8F1;text-wrap:balance;">Game-Based<br /><span style="color:#F4C13C;">Dog Training</span></h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.75;color:rgba(251,248,241,.9);margin:0 0 14px;max-width:34ch;">ครูฝึกสุนัขถึงบ้าน<br />สไตล์ “เล่นไปฝึกไป” ไม่ดุ ไม่บังคับ</p>
+      <p style="font-size:15px;color:rgba(251,248,241,.75);margin:0 0 28px;">📍 บริการถึงบ้าน — รามคำแหง · สวนหลวง · พระราม 9 · ลาดกระบัง</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+        <a href="#line" class="btn-gold" style="font-size:17px;padding:15px 28px;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 4px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 0 #DFA714'"><span style="font-size:18px;">💬</span> แอด LINE ปรึกษาฟรี</a>
+        <a href="#services" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#FBF8F1;font-weight:600;font-size:16px;padding:14px 24px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.55);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.55)'">ดูบริการ</a>
+      </div>
+    </div>
+    <div style="flex:1 1 380px;min-width:300px;">
+      <div style="position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);border:3px solid rgba(244,193,60,.35);">
+        <ImageSlot
+          src="/uploads/PXL_20251214_144515964.jpg"
+          alt="มอมแมม (เชลตี้) วิ่งเข้าหาในโมเมนต์ recall จริง"
+          placeholder="คลิป recall — มอมแมมวิ่งเข้าหา (แนวตั้งได้ก่อน)"
+          loading="eager"
+        />
+        <div style="position:absolute;left:16px;bottom:16px;background:rgba(42,37,33,.82);backdrop-filter:blur(4px);color:#FBF8F1;font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;pointer-events:none;">▶ โมเมนต์ recall จริง</div>
+      </div>
+    </div>
+  </div>
+</header>

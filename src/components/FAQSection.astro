@@ -1,0 +1,25 @@
+---
+const faqs = [
+  { q: 'ใช้เวลานานแค่ไหนถึงเห็นผล?', a: 'ส่วนใหญ่เริ่มเห็นการเปลี่ยนแปลงตั้งแต่ครั้งแรก ๆ ถ้าซ้อมต่อเนื่องที่บ้าน คอร์ส 5 ครั้งช่วยให้ทักษะติดตัวเป็นระบบ' },
+  { q: 'น้องอายุเยอะ / ดื้อมาก ฝึกได้ไหม?', a: 'ได้ครับ วิธีเล่นไปฝึกไปเหมาะกับทุกวัย เพราะอิงความสนุกและการให้หมาได้เลือกเอง ไม่ใช่การบังคับ' },
+  { q: 'ต้องเตรียมอะไรก่อนครูมา?', a: 'แค่พื้นที่ในบ้านและขนมที่น้องชอบ ที่เหลือเราจัดการให้ — รายละเอียดจะคุยกันทาง LINE ก่อนนัด' },
+  { q: 'ให้บริการโซนไหนบ้าง?', a: 'รามคำแหง · สวนหลวง · พระราม 9 · ลาดกระบัง และพื้นที่ใกล้เคียง กรุงเทพฯ — โซนอื่นสอบถามทาง LINE ได้' },
+];
+---
+<section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+  <div style="max-width:760px;margin:0 auto;">
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 40px;color:#2A2521;text-align:center;">คำถามที่พบบ่อย</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      {faqs.map((f) => (
+        <details style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:2px 22px;">
+          <summary style="cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;color:#2A2521;padding:18px 0;display:flex;justify-content:space-between;gap:12px;">{f.q}<span style="color:#F4C13C;">+</span></summary>
+          <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0 0 18px;">{f.a}</p>
+        </details>
+      ))}
+      <details style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:2px 22px;">
+        <summary style="cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;color:#2A2521;padding:18px 0;display:flex;justify-content:space-between;gap:12px;">ราคาเท่าไหร่?<span style="color:#F4C13C;">+</span></summary>
+        <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0 0 18px;">ครั้งแรก (ประเมิน+เริ่มฝึก) โปรชุดแรก 1,990 บาท · คอร์ส 5 ครั้ง ~11,900 บาท ดูรายละเอียดที่ <a href="#pricing">แพ็กเกจ &amp; ราคา</a></p>
+      </details>
+    </div>
+  </div>
+</section>

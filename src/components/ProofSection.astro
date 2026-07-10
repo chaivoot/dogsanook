@@ -1,0 +1,16 @@
+---
+import ImageSlot from './ImageSlot.astro';
+// Reviews area intentionally left to fill later (no customers yet — §5).
+---
+<section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+  <div style="max-width:1080px;margin:0 auto;">
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 10px;color:#2A2521;text-align:center;">ดูฝีมือจริงของเรา</h2>
+    <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 0 42px;">คลิปฝึกจริง เล่นไปฝึกไป จากช่องของเรา</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-bottom:44px;">
+      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot src="/uploads/PXL_20251012_035818088.jpg" alt="คลิป recall — มอมแมมฝึกเรียกแล้วมา" placeholder="คลิป recall (มอมแมม)" /></div>
+      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot alt="คลิป cooperative care — ดูแลน้องแบบให้ความร่วมมือ" placeholder="คลิป cooperative care" /></div>
+      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot alt="คลิปเล่นไปฝึกไป" placeholder="คลิปเล่นไปฝึกไป" /></div>
+    </div>
+    <!-- พื้นที่รีวิวลูกค้า — เว้นไว้เติมภายหลัง (CLAUDE.md §5) -->
+  </div>
+</section>

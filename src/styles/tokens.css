@@ -1,0 +1,89 @@
+/*
+ * dogsanook.com — Design tokens
+ * ------------------------------------------------------------------
+ * Single source of truth for color / type / spacing. Portable: copy this
+ * file into games.dogsanook.com (Phase 2) so both surfaces share a brand.
+ *
+ * NOTE on palette (CLAUDE.md §4 open item):
+ * The authoritative handoff mockup (Dogsanook Landing.dc.html) ships a warm
+ * ink + gold palette — that is what is implemented here, 1:1 with the mockup.
+ * The logo's teal brand colors are kept below as `--brand-teal-*` so they are
+ * available (nav accents, games.* subdomain, future rebalance) without
+ * changing the current visual. Owner still to decide teal-vs-warm — until
+ * then we ship the approved mockup exactly.
+ */
+
+:root {
+  /* ---- Warm ink + gold (as used in the approved mockup) ---- */
+  --ink-hero: #2A2521;      /* hero / dark sections base */
+  --ink-hero-2: #201C19;    /* gradient bottom, footer */
+  --ink: #20302F;           /* primary body text */
+  --ink-soft: #4a423a;      /* secondary text on paper */
+  --muted: #7c7266;         /* captions / meta */
+  --muted-2: #6b6157;
+
+  --gold: #F4C13C;          /* primary CTA, highlight */
+  --gold-deep: #DFA714;     /* CTA shadow / hover / accent */
+  --gold-text: #8A6A18;     /* gold text on light bg, links */
+
+  --paper: #FBF8F1;         /* main background (warm off-white) */
+  --sand: #F2E9D8;          /* soft section / callout */
+  --line: rgba(140, 120, 80, .16); /* hairline borders */
+
+  /* ---- Brand teal (from the logo — reserved, see note above) ---- */
+  --brand-teal-deep: #0E6360;
+  --brand-teal: #178C88;
+  --brand-teal-soft: #E3F1EF;
+
+  /* ---- Type ---- */
+  --font-display: 'Chonburi', serif;   /* echoes the logo — use with discipline */
+  --font-body: 'Sarabun', sans-serif;  /* TH + Latin */
+
+  /* ---- Rhythm ---- */
+  --maxw: 1180px;
+  --radius: 20px;
+  --radius-lg: 26px;
+  --section-y: clamp(56px, 8vw, 110px);
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--gold-text); }
+a:hover { color: #2A2521; }
+::selection { background: var(--gold); color: var(--ink); }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* shared building blocks */
+.container { max-width: var(--maxw); margin: 0 auto; }
+.section { padding: var(--section-y) var(--gutter); }
+
+/* pill CTA with the mockup's stacked "physical button" shadow */
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--gold); color: var(--ink);
+  font-weight: 700; text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 var(--gold-deep);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-gold:hover { transform: translateY(2px); box-shadow: 0 4px 0 var(--gold-deep); color: var(--ink); }
+
+/* scroll-reveal (JS adds motion; this is the reduced-motion-safe base) */
+[data-reveal] { will-change: opacity, transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+details summary::-webkit-details-marker { display: none; }

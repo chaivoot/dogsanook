@@ -1,0 +1,22 @@
+---
+const steps = [
+  { n: '01', title: 'แอด LINE เล่าเรื่องน้อง', body: 'ทักมาเล่าปัญหา เราตอบเอง ปรึกษาฟรี' },
+  { n: '02', title: 'นัดประเมิน + วางแผนถึงบ้าน', body: 'เจอน้องตัวจริง ประเมิน แล้ววางแผนเฉพาะตัว' },
+  { n: '03', title: 'เริ่มคอร์สเล่นไปฝึกไป', body: 'ลงมือฝึกจริง สนุกทั้งคนทั้งหมา' },
+];
+---
+<section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+  <div style="max-width:1000px;margin:0 auto;">
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 46px;color:#2A2521;text-align:center;">เริ่มยังไง</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+      {steps.map((s) => (
+        <div style="text-align:center;padding:0 10px;">
+          <div style="font-family:'Chonburi',serif;font-size:52px;color:#F4C13C;line-height:1;">{s.n}</div>
+          <div style="width:44px;height:3px;background:#8A6A18;margin:12px auto 18px;border-radius:2px;"></div>
+          <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:20px;color:#2A2521;margin:0 0 8px;">{s.title}</h3>
+          <p style="font-size:15px;color:#7c7266;line-height:1.7;margin:0;">{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import { site } from '../config/site';
+// The one real LINE link on the page. All other CTAs scroll here (#line).
+const hoursLine = site.hours ? ` · ${site.hours}` : '';
+---
+<section id="line" data-reveal style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px);text-align:center;">
+  <div style="max-width:720px;margin:0 auto;">
+    <img src="/uploads/logo-gold-mark.png" alt="โลโก้ หมาสนุก" width="132" height="132" style="width:132px;height:132px;margin:0 auto 20px;display:block;" />
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.25;margin:0 0 22px;color:#FBF8F1;text-wrap:balance;">พร้อมให้น้องเริ่ม<span style="color:#F4C13C;">เล่นไปฝึกไป</span>หรือยัง?</h2>
+    <a href={site.lineUrl} class="btn-gold" style="font-size:18px;padding:17px 34px;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 4px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 0 #DFA714'"><span style="font-size:20px;">💬</span> แอด LINE ปรึกษาฟรี</a>
+    <p style="font-size:15px;color:rgba(251,248,241,.8);margin:26px 0 0;">📍 รามคำแหง · สวนหลวง · พระราม 9 · ลาดกระบัง{hoursLine}</p>
+  </div>
+</section>

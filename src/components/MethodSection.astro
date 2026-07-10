@@ -1,0 +1,30 @@
+---
+// "วิธีเล่นไปฝึกไป". Includes the self-control priming line required by
+// CLAUDE.md §5/§9 — wording taken from the brief so "คอย" in the services
+// list reads as self-control, not a traditional command.
+const cards = [
+  { icon: '🎯', title: 'ได้เลือกเอง', body: 'หมาตัดสินใจเอง เลยจำได้จริง ทำได้จริง ไม่ใช่แค่ตอนถูกสั่ง' },
+  { icon: '🎲', title: 'สนุกจนอยากทำซ้ำ', body: 'เสริมแรงบวก หมาอยากร่วมมือเพราะมันสนุก ไม่ใช่เพราะกลัว' },
+  { icon: '💛', title: 'ไม่ดุ ไม่บังคับ', body: 'ไม่มีการดุ ตี กระตุก — สร้างความไว้ใจแทนความกลัว' },
+];
+---
+<section data-reveal style="background:#2A2521;color:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+  <div style="max-width:1040px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(27px,5vw,48px);line-height:1.22;margin:0 0 16px;color:#FBF8F1;">ทำไม “เล่นไปฝึกไป”<br />ถึงได้ผลกว่าการบังคับ</h2>
+      <p style="font-size:17px;color:#F4C13C;font-weight:600;margin:0;">สอนผ่านการเล่น + ให้หมาได้เลือกเอง ไม่ดุ ไม่บังคับ</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+      {cards.map((c) => (
+        <div style="background:rgba(251,248,241,.06);border:1px solid rgba(244,193,60,.28);border-radius:20px;padding:28px 26px;">
+          <div style="width:46px;height:46px;border-radius:14px;background:#F4C13C;color:#20302F;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">{c.icon}</div>
+          <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:22px;margin:0 0 10px;color:#F4C13C;">{c.title}</h3>
+          <p style="font-size:15.5px;line-height:1.75;color:rgba(251,248,241,.88);margin:0;">{c.body}</p>
+        </div>
+      ))}
+    </div>
+    <p style="max-width:60ch;margin:28px auto 0;text-align:center;font-size:15.5px;line-height:1.8;color:rgba(251,248,241,.82);">
+      แม้แต่การ “อยู่นิ่ง ๆ” เราก็สอนให้น้อง<strong style="color:#F4C13C;">อยู่ได้เพราะเข้าใจเอง ไม่ใช่เพราะถูกสั่ง</strong>
+    </p>
+  </div>
+</section>
