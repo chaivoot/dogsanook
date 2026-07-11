@@ -34,7 +34,9 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
     <meta name="description" content={description} />
     <meta name="keywords" content={defaultSeo.keywords.join(', ')} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/png" href="/uploads/logo-gold-mark.png" />
+    <!-- Favicon = main teal brand mark (มอมแมม circle), not the gold-only wordmark -->
+    <link rel="icon" type="image/png" href="/uploads/mommam.png" />
+    <link rel="apple-touch-icon" href="/uploads/mommam.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
