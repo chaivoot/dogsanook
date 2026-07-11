@@ -5,13 +5,15 @@ import Footer from '../components/Footer.astro';
 import ImageSlot from '../components/ImageSlot.astro';
 import { site } from '../config/site';
 // Lead magnet (CLAUDE.md §5): hand target — a universal technique (IP-safe,
-// §8). Written guide is public (SEO + trust); the demo clips + case advice are
-// the reason to add LINE.
+// §8). GATED: this is the reward for adding LINE, so keep it noindex + out of
+// the sitemap + unlinked from public pages. The URL is shared only via the
+// LINE rich menu / auto-reply, so "แอด LINE รับฟรี" stays truthful.
 ---
 <BaseLayout
   title="คู่มือฝึกสุนัข: ท่าแตะมือ (Hand Target) ฉบับเล่นไปฝึกไป | หมาสนุก"
-  description="คู่มือฟรี: สอนสุนัขท่าแตะมือ (Hand Target) สร้างความโฟกัสขั้นสุด สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — สูตร 5 นาที ขั้นพื้นฐานถึงขั้นสูง โดยครูฝึกสุนัขถึงบ้าน หมาสนุก กรุงเทพฯ"
+  description="คู่มือฝึกสุนัขท่าแตะมือ (Hand Target) สไตล์เล่นไปฝึกไป — สำหรับเพื่อน ๆ ที่แอด LINE หมาสนุก"
   path="/hand-target"
+  noindex={true}
 >
   <Nav />
 
