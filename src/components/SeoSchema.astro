@@ -56,5 +56,17 @@ const schema = {
     price: String(site.pricing.firstSession.promo),
   },
 };
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: site.heroVideo.name,
+  description: site.heroVideo.description,
+  thumbnailUrl: [new URL(site.heroVideo.poster, site.domain).href],
+  contentUrl: new URL(site.heroVideo.url, site.domain).href,
+  uploadDate: site.heroVideo.uploadDate,
+  duration: site.heroVideo.duration,
+  publisher: { '@id': `${site.domain}/#business` },
+};
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
