@@ -28,6 +28,12 @@ const schema = {
     availableLanguage: ['th'],
   },
   priceRange: '฿฿',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: site.hoursSpec.days,
+    opens: site.hoursSpec.opens,
+    closes: site.hoursSpec.closes,
+  },
   areaServed: [...site.zones, ...site.zonesNearby].map((z) => ({
     '@type': 'Place',
     name: `${z} ${site.city}`,

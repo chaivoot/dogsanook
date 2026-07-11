@@ -32,8 +32,13 @@ export const site = {
   phone: '081-949-6389', // display form
   phoneTel: '+66819496389', // tel: link (E.164)
 
-  // TODO(owner): business hours (CLAUDE.md §10).
-  hours: '',
+  // Business hours: open 11:00–19:00, closed Wed & Sat.
+  hours: 'เปิด 11:00–19:00 · หยุดพุธ และ เสาร์',
+  hoursSpec: {
+    days: ['Monday', 'Tuesday', 'Thursday', 'Friday', 'Sunday'],
+    opens: '11:00',
+    closes: '19:00',
+  },
 
   // Socials — handles from CLAUDE.md §5. TODO(owner): confirm exact URLs.
   social: {
