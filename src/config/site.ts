@@ -32,6 +32,18 @@ export const site = {
   phone: '081-949-6389', // display form
   phoneTel: '+66819496389', // tel: link (E.164)
 
+  // Hero recall clip — metadata for VideoObject schema (helps Google index
+  // the video + become eligible for a video thumbnail in search results).
+  heroVideo: {
+    url: '/uploads/dogsanook-recall-dog-training-bangkok.mp4',
+    poster: '/uploads/PXL_20251214_144515964.jpg',
+    name: 'โมเมนต์ recall จริง — มอมแมมวิ่งเข้าหา (เล่นไปฝึกไป)',
+    description:
+      'คลิปฝึกจริงสไตล์เล่นไปฝึกไป — มอมแมม (เชลตี้) เรียกแล้ววิ่งเข้าหา โดยครูฝึกสุนัขถึงบ้าน หมาสนุก กรุงเทพฯ',
+    uploadDate: '2025-12-14',
+    duration: 'PT22S',
+  },
+
   // Business hours: open 11:00–19:00, closed Wed & Sat.
   hours: 'เปิด 11:00–19:00 · หยุดพุธ และ เสาร์',
   hoursSpec: {
