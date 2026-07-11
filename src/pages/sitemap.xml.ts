@@ -6,7 +6,7 @@ export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const urls = [
     { loc: `${site.domain}/`, priority: '1.0' },
-    { loc: `${site.domain}/hand-target`, priority: '0.8' },
+    // /hand-target is intentionally excluded — it's a LINE-only gated guide (noindex).
     { loc: `${site.domain}/blog`, priority: '0.8' },
     ...posts.map((p) => ({
       loc: `${site.domain}/blog/${p.id}`,

@@ -13,6 +13,8 @@ interface Props {
   /** Path only, e.g. "/blog" — resolved against site.domain for canonical/OG. */
   path?: string;
   includeBusinessSchema?: boolean;
+  /** Gated/unlisted pages (e.g. the LINE-only guide) — keep out of Google. */
+  noindex?: boolean;
 }
 const {
   title = defaultSeo.title,
@@ -20,6 +22,7 @@ const {
   ogImage = defaultSeo.ogImage,
   path = Astro.url.pathname,
   includeBusinessSchema = false,
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(path, site.domain).href;
@@ -33,6 +36,7 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={defaultSeo.keywords.join(', ')} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <!-- Favicon = main teal brand mark (มอมแมม circle), not the gold-only wordmark -->
     <link rel="icon" type="image/png" href="/uploads/mommam.png" />
