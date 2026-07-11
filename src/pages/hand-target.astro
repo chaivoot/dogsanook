@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import { site } from '../config/site';
+// Lead magnet (CLAUDE.md §5): hand target — a universal technique (IP-safe,
+// §8). Written guide is public (SEO + trust); the demo clips + case advice are
+// the reason to add LINE.
+---
+<BaseLayout
+  title="คู่มือฝึกสุนัข: ท่าแตะมือ (Hand Target) ฉบับเล่นไปฝึกไป | หมาสนุก"
+  description="คู่มือฟรี: สอนสุนัขท่าแตะมือ (Hand Target) สร้างความโฟกัสขั้นสุด สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — สูตร 5 นาที ขั้นพื้นฐานถึงขั้นสูง โดยครูฝึกสุนัขถึงบ้าน หมาสนุก กรุงเทพฯ"
+  path="/hand-target"
+>
+  <Nav />
+
+  <!-- Header -->
+  <header style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(44px,7vw,80px) clamp(16px,4vw,48px);">
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="display:inline-block;font-weight:800;font-size:13px;letter-spacing:.06em;color:#20302F;background:#F4C13C;padding:6px 14px;border-radius:999px;margin-bottom:18px;">🎁 คู่มือแจกฟรี</div>
+      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,46px);line-height:1.25;margin:0 0 18px;color:#FBF8F1;">คู่มือการฝึกสุนัข: ท่าแตะมือ (Hand Target) เพื่อสร้างความโฟกัสขั้นสุด</h1>
+      <p style="font-size:clamp(16px,2vw,18px);line-height:1.85;color:rgba(251,248,241,.9);margin:0;">ท่าแตะมือไม่ได้เป็นเพียงแค่ทริกน่ารัก ๆ แต่เป็น “เครื่องมือวัดใจ” ชั้นดีที่ช่วยเช็กระดับความตื่นตัว (Arousal) และความโฟกัสของสุนัขที่มีต่อคุณ ก่อนที่จะเริ่มบทเรียนที่ยากขึ้น นอกจากนี้ยังช่วยสร้างประวัติการได้รับรางวัลที่ดีร่วมกันอีกด้วย</p>
+    </div>
+  </header>
+
+  <main style="max-width:760px;margin:0 auto;padding:clamp(36px,6vw,64px) clamp(16px,4vw,48px);">
+
+    <!-- Demo clip placeholder -->
+    <div style="aspect-ratio:16/9;border-radius:20px;overflow:hidden;margin-bottom:36px;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);">
+      <ImageSlot alt="คลิปสาธิตท่าแตะมือ (Hand Target) โดยหมาสนุก" placeholder="🎬 คลิปสาธิตท่าแตะมือ — เร็ว ๆ นี้" loading="eager" />
+    </div>
+
+    <!-- Equipment -->
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:26px;color:#2A2521;margin:0 0 14px;">🎒 อุปกรณ์ที่ต้องเตรียม</h2>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 36px;">
+      <li>ตัวคุณและสุนัข</li>
+      <li>ขนมรางวัลแสนอร่อย (เกรดพรีเมียม หยิบง่าย)</li>
+      <li>สายจูง</li>
+      <li>พื้นที่ฝึกที่เงียบสงบ ไม่มีสิ่งรบกวน</li>
+    </ul>
+
+    <!-- 5-min formula -->
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:26px;color:#2A2521;margin:0 0 14px;">⏱️ สูตรลับ 5 นาที: ขั้นตอนการฝึกพื้นฐาน (สำหรับมือใหม่)</h2>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 22px;">ก่อนเริ่มพาสุนัขเข้ามา ให้คุณลองซ้อมขยับมือของตัวเองดูก่อนเพื่อให้เกิดความเคยชิน เมื่อมั่นใจในจังหวะแล้วจึงค่อยพาสุนัขเข้ามาร่วมสนุกกันครับ</p>
+
+    <h3 style="font-weight:700;font-size:19px;color:#2A2521;margin:0 0 8px;">1. แยกหน้าที่ของสองมือให้ชัดเจน</h3>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 22px;">
+      <li><strong>มือขนม (Cookie Hand):</strong> มือที่คอยหยิบและถือขนมไว้</li>
+      <li><strong>มือเป้าหมาย (Target Hand):</strong> มือเปล่าที่จะให้สุนัขเอาจมูกมาแตะ</li>
+    </ul>
+
+    <h3 style="font-weight:700;font-size:19px;color:#2A2521;margin:0 0 8px;">2. วิธีการส่งสัญญาณมือ</h3>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 14px;">ยื่น <strong>มือเป้าหมาย</strong> ออกไปในลักษณะ “แบมือตรงและนิ่ง” หันฝ่ามือไปทางสุนัข</p>
+    <div style="background:#F7EFDD;border-left:4px solid #DFA714;border-radius:0 14px 14px 0;padding:16px 20px;margin:0 0 14px;">
+      <p style="font-size:16px;line-height:1.85;color:#20302F;margin:0;"><strong>⚠️ ข้อควรระวัง:</strong> ห้ามยื่นมือเข้าไปยัดเยียดใส่หน้าสุนัขเด็ดขาด ให้ถือมือนิ่ง ๆ เพื่อให้สุนัขเป็นฝ่าย “เลือก” เดินเข้ามาหาเอง</p>
+    </div>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 22px;">หากสุนัขเมินเฉย ให้เก็บมือไว้ข้างหลังก่อน แล้วค่อยยื่นออกมาใหม่เมื่อสุนัขกลับมาสนใจคุณ</p>
+
+    <h3 style="font-weight:700;font-size:19px;color:#2A2521;margin:0 0 8px;">3. จังหวะการให้รางวัล</h3>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 14px;">เมื่อสุนัขเดินเข้ามาสำรวจหรือดมมือเป้าหมาย ให้ทำมือห่อเป็นถ้วยเล็กน้อย แล้วใช้ <strong>มือขนม</strong> ปล่อยขนมลงบนฝ่ามือเป้าหมายทันที</p>
+    <div style="background:#F2E9D8;border-left:4px solid #8A6A18;border-radius:0 14px 14px 0;padding:16px 20px;margin:0 0 22px;">
+      <p style="font-size:16px;line-height:1.85;color:#20302F;margin:0;"><strong>💡 Tip:</strong> ถ้าขนมตกพื้น ให้พูดคำว่า “Get it” (เก็บเลย) เพื่อรักษาความชัดเจนและระเบียบวินัยในการฝึก ไม่ปล่อยให้สุนัขฉวยโอกาสกินเองโดยไม่ได้รับอนุญาต</p>
+    </div>
+
+    <h3 style="font-weight:700;font-size:19px;color:#2A2521;margin:0 0 8px;">4. เพิ่มเกณฑ์ความยาก (Criteria)</h3>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 36px;">
+      <li>หลังจากให้รางวัลจากการเข้ามาสำรวจ 1-2 ครั้งแรกแล้ว ให้เริ่มรอจนกระทั่ง “จมูกของสุนัขแตะโดนฝ่ามือของคุณจริง ๆ” จึงจะปล่อยขนม</li>
+      <li>เมื่อสุนัขแตะได้สำเร็จ 3-4 ครั้ง ให้หยุดพักแล้วชวนวิ่งเล่นหรือเล่นของเล่นดึงคะเย่อ (Tug) ทันที</li>
+      <li>เมื่อกลับมาฝึกต่อ ให้สลับหน้าที่ของมือ (มือที่เคยเป็นมือขนม ให้เปลี่ยนมาเป็นมือเป้าหมาย) เพื่อให้สุนัขทำได้ทั้งสองข้าง</li>
+    </ul>
+
+    <!-- Movement -->
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:26px;color:#2A2521;margin:0 0 14px;">🏃 เพิ่มพลังความสนุกด้วยการเคลื่อนไหว</h2>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 14px;">เมื่อคุณและสุนัขเริ่มเข้าใจจังหวะแล้ว ให้เพิ่มระดับความตื่นตัวและความสนุกเข้าไปในเกม:</p>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 36px;">
+      <li>ยื่นมือซ้ายให้สุนัขแตะ 3-4 ครั้ง</li>
+      <li>พาวิ่งเปลี่ยนตำแหน่งไปยังจุดใหม่ใกล้ ๆ (การวิ่งจะช่วยกระตุ้นความตื่นตัวกระตือรือร้น)</li>
+      <li>ยื่นมือขวาให้สุนัขแตะอีก 3-4 ครั้ง</li>
+    </ul>
+
+    <!-- No verbal cue (important) -->
+    <div style="background:#2A2521;color:#FBF8F1;border:2px solid #F4C13C;border-radius:20px;padding:28px 26px;margin:0 0 36px;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:23px;color:#F4C13C;margin:0 0 14px;">🚫 สำคัญมาก: ห้ามใช้คำสั่งเสียง (No Verbal Cue!)</h2>
+      <p style="font-size:16px;line-height:1.85;color:rgba(251,248,241,.9);margin:0 0 14px;">รู้หรือไม่? ท่าแตะมือนี้ <strong style="color:#F4C13C;">ไม่จำเป็นและไม่ควรตั้งคำสั่งเสียง</strong> (เช่น พูดคำว่า “Touch” หรือ “แตะ”) ด้วยเหตุผลสำคัญดังนี้:</p>
+      <p style="font-size:16px;line-height:1.85;color:rgba(251,248,241,.9);margin:0 0 14px;"><strong>เหตุผลทางพฤติกรรมศาสตร์:</strong> เจ้าของสุนัขส่วนใหญ่มักชอบพูดคำว่า “Touch” ในตอนที่สุนัขกำลังเมินเฉยหรือกำลังสนใจสิ่งอื่น เพื่อล่อให้สุนัขหันกลับมา ซึ่งเท่ากับว่าคุณกำลังให้รางวัล (สร้างพฤติกรรม) แก่สุนัขในขณะที่เขากำลังเมินคุณ!</p>
+      <p style="font-size:16px;line-height:1.85;color:rgba(251,248,241,.9);margin:0;">การยื่นมือออกไปคือ “สัญญาณภาพ (Physical Cue)” ที่ชัดเจนเพียงพออยู่แล้ว สุนัขจะเรียนรู้ว่าต้องโฟกัสที่คุณตลอดเวลา หากปัจจุบันคุณติดปากพูดคำสั่งเสียงอยู่ ให้ตัดคำพูดนั้นทิ้งไป แล้วใช้เพียงการยื่นมืออย่างเดียว สุนัขจะยังคงทำพฤติกรรมนี้ได้ตามปกติ</p>
+    </div>
+
+    <!-- Advanced -->
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:26px;color:#2A2521;margin:0 0 14px;">🚀 สูตร 5 นาทีขั้นสูง: ท้าทายสิ่งเร้า (Advanced)</h2>
+    <p style="font-size:17px;line-height:1.9;color:#4a423a;margin:0 0 14px;">หากสุนัขของคุณทำท่าแตะมือได้อย่างมั่นคงแล้ว มาร่วมผลักดันขีดจำกัดการฝึกให้สูงขึ้นกันครับ:</p>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 14px;">
+      <li><strong>ฝึกใกล้สิ่งเร้า:</strong> นำพฤติกรรมนี้ไปฝึกใกล้ ๆ กับสิ่งเร้าที่สุนัขชอบวอกแวก (อ้างอิงจากรายการสิ่งเร้าของสุนัขคุณ)</li>
+      <li><strong>ฝึกการควบคุมตัวเองด้วยขนมล่อ:</strong> ถือเนื้อไก่หรือเปิดขนมเต็มกำมือไว้ที่ “มือขนม” ในขณะที่ยื่น “มือเป้าหมาย” ออกไป สุนัขต้องเลือกที่จะละทิ้งขนมในมือหนึ่งเพื่อไปแตะอีกมือหนึ่งแทน</li>
+      <li><strong>เช็กความแรง (Intensity):</strong> ลองหลับตาแล้วประเมินด้วยความรู้สึกว่า จมูกของสุนัขกดลงบนฝ่ามือแรงขึ้นและมั่นคงขึ้นหรือไม่</li>
+      <li><strong>ฝึกในระดับสิ่งเร้าเลเวล 8-9:</strong> ค่อย ๆ ไต่ระดับไปฝึกในสภาพแวดล้อมที่ท้าทาย หากสุนัขทำพลาด ให้ถอยห่างจากสิ่งเร้าออกมาก่อน</li>
+    </ul>
+    <div style="background:#F2E9D8;border-left:4px solid #8A6A18;border-radius:0 14px 14px 0;padding:16px 20px;margin:0 0 36px;">
+      <p style="font-size:16px;line-height:1.85;color:#20302F;margin:0;"><strong>🎁 Tip ขั้นสูง:</strong> ให้รางวัลการแตะ 2-3 ครั้งแรกด้วยขนม และในครั้งสุดท้าย ให้รางวัลเป็นการปล่อยให้เขาไปหาหรือเล่นกับสิ่งเร้านั้นแทน (หากสิ่งเร้านั้นปลอดภัยและเหมาะสม)</p>
+    </div>
+
+    <!-- Daily plan -->
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:26px;color:#2A2521;margin:0 0 14px;">📅 แผนการฝึกประจำวัน และเป้าหมายสูงสุด</h2>
+    <ul style="font-size:17px;line-height:1.9;color:#4a423a;padding-left:22px;margin:0 0 40px;">
+      <li><strong>เป้าหมายวันนี้:</strong> ฝึกเซสชั่นสั้น ๆ 5 ครั้งต่อวัน (รวมให้ได้ประมาณ 35 ครั้ง)</li>
+      <li><strong>จังหวะที่ถูกต้อง:</strong> ให้ขนมไม่เกิน 3-4 ชิ้นต่อหนึ่งรอบ จากนั้นตัดจบด้วยการเล่นดึงคะเย่อหรือวิ่งไล่จับกัน</li>
+      <li><strong>เป้าหมายสูงสุด (Ultimate Vision):</strong> จมูกของสุนัขต้องกดชนเข้าตรงกลางฝ่ามืออย่างมั่นคงและมีพลัง จนเห็นรอยย่นที่ดั้งจมูก (Nose wrinkle)</li>
+    </ul>
+
+    <!-- CTA -->
+    <div style="background:#F4C13C;color:#20302F;border-radius:22px;padding:30px 28px;text-align:center;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(20px,3vw,26px);line-height:1.35;margin:0 0 10px;color:#20302F;">อยากดูคลิปสาธิต + ปรึกษาเคสน้องโดยตรง?</h2>
+      <p style="font-size:15.5px;color:#4a3d10;margin:0 0 20px;">แอด LINE หมาสนุก — เราตอบเอง ปรึกษาฟรี พร้อมส่งคลิปสอนให้</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#2A2521;color:#FBF8F1;font-weight:700;font-size:16px;padding:15px 28px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #201C19;transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 3px 0 #201C19'" onmouseout="this.style.transform='';this.style.boxShadow='0 5px 0 #201C19'"><span style="font-size:18px;">💬</span> แอด LINE ปรึกษาฟรี</a>
+        <a href={`tel:${site.phoneTel}`} style="display:inline-flex;align-items:center;gap:9px;background:transparent;color:#20302F;font-weight:700;font-size:16px;padding:14px 26px;border-radius:999px;text-decoration:none;border:2px solid #20302F;">📞 โทร {site.phone}</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin:28px 0 0;"><a href="/" style="color:#8A6A18;font-weight:600;text-decoration:none;">← กลับหน้าหลัก</a></p>
+  </main>
+
+  <Footer />
+</BaseLayout>
