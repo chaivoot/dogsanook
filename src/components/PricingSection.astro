@@ -4,15 +4,16 @@ import { site } from '../config/site';
 ---
 <section id="pricing" data-reveal style="background:#2A2521;color:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
   <div style="max-width:960px;margin:0 auto;">
-    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 10px;color:#FBF8F1;text-align:center;">แพ็กเกจ &amp; ราคา</h2>
-    <p style="text-align:center;font-size:15px;color:#F4C13C;font-weight:600;margin:0 0 44px;">โปรลูกค้าชุดแรก (จำนวนจำกัด) — แลกกับรีวิว + อนุญาตถ่ายคลิปลงเพจ</p>
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 12px;color:#FBF8F1;text-align:center;">แพ็กเกจ &amp; ราคา</h2>
+    <p style="text-align:center;font-size:clamp(17px,2.4vw,20px);color:#FBF8F1;font-weight:600;margin:0 0 8px;">ราคาปกติ <span style="color:#F4C13C;">ครั้งละ 3,000 บาท</span></p>
+    <p style="text-align:center;font-size:15px;color:#F4C13C;font-weight:600;margin:0 0 44px;">ตอนนี้มีโปรลูกค้าชุดแรก (จำนวนจำกัด) — แลกกับรีวิว + อนุญาตถ่ายคลิปลงเพจ</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;align-items:stretch;">
       <div style="background:rgba(251,248,241,.06);border:1px solid rgba(244,193,60,.28);border-radius:22px;padding:30px 28px;display:flex;flex-direction:column;">
         <div style="font-weight:700;font-size:14px;color:#F4C13C;letter-spacing:.05em;margin-bottom:6px;">ครั้งแรก</div>
         <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:22px;color:#FBF8F1;margin:0 0 4px;">ประเมิน + เริ่มฝึก</h3>
         <p style="font-size:13.5px;color:rgba(251,248,241,.7);margin:0 0 18px;">~1.5–2 ชม. ที่บ้านคุณ</p>
-        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#F4C13C;">1,990</span><span style="font-size:14px;color:rgba(251,248,241,.6);">บาท</span></div>
-        <div style="font-size:14px;color:rgba(251,248,241,.55);text-decoration:line-through;margin-bottom:22px;">ปกติ 3,000 บาท</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#F4C13C;">1,990</span><span style="font-size:14px;color:rgba(251,248,241,.6);">บาท · เฉพาะลูกค้าชุดแรก</span></div>
+        <div style="font-size:16px;color:rgba(251,248,241,.82);margin-bottom:22px;">ราคาปกติ <span style="text-decoration:line-through;">3,000 บาท/ครั้ง</span></div>
         <a href={site.lineUrl} target="_blank" rel="noopener" style="margin-top:auto;display:block;text-align:center;background:transparent;color:#FBF8F1;font-weight:700;font-size:16px;padding:13px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.55);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.55)'">เริ่มจากครั้งแรก</a>
       </div>
       <div style="position:relative;background:#FBF8F1;color:#20302F;border-radius:22px;padding:30px 28px;display:flex;flex-direction:column;box-shadow:0 24px 48px -20px rgba(0,0,0,.5);">
@@ -20,11 +21,11 @@ import { site } from '../config/site';
         <div style="font-weight:700;font-size:14px;color:#8A6A18;letter-spacing:.05em;margin-bottom:6px;">คอร์สเต็ม</div>
         <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:22px;color:#2A2521;margin:0 0 4px;">คอร์สเล่นไปฝึกไป (5 ครั้ง)</h3>
         <p style="font-size:13.5px;color:#7c7266;margin:0 0 18px;">แผนต่อเนื่อง เห็นผลจริงเป็นระบบ</p>
-        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#2A2521;">~11,900</span><span style="font-size:14px;color:#7c7266;">บาท</span></div>
-        <div style="font-size:14px;color:#b0a595;text-decoration:line-through;margin-bottom:22px;">ปกติ 15,000 บาท</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;"><span style="font-family:'Chonburi',serif;font-size:40px;color:#2A2521;">~11,900</span><span style="font-size:14px;color:#7c7266;">บาท · เฉพาะลูกค้าชุดแรก</span></div>
+        <div style="font-size:16px;color:#6b6157;margin-bottom:22px;">ราคาปกติ <span style="text-decoration:line-through;">15,000 บาท</span> <span style="white-space:nowrap;">(เฉลี่ย 3,000/ครั้ง)</span></div>
         <a href={site.lineUrl} target="_blank" rel="noopener" class="btn-gold" style="margin-top:auto;justify-content:center;font-size:16px;padding:14px;box-shadow:0 5px 0 #DFA714;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 3px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 5px 0 #DFA714'">จองคอร์สนี้</a>
       </div>
     </div>
-    <p style="text-align:center;font-size:13.5px;color:rgba(251,248,241,.65);margin:26px 0 0;">ราคาสำหรับโซนที่ให้บริการ · สอบถามเพิ่มทาง LINE</p>
+    <p style="text-align:center;font-size:13.5px;color:rgba(251,248,241,.65);margin:26px 0 0;">ราคาด้านบนเป็นโปรลูกค้าชุดแรก (จำนวนจำกัด) · ราคาสำหรับโซนที่ให้บริการ — สอบถามเพิ่มทาง LINE</p>
   </div>
 </section>
