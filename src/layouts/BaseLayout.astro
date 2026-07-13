@@ -100,5 +100,41 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
         els.forEach((el) => io.observe(el));
       }
     </script>
+
+    <!-- Lazy YouTube: show a thumbnail, load the privacy-friendly player on
+         click. Hydrates any .yt-facade[data-id] (component or Markdown HTML). -->
+    <script>
+      document
+        .querySelectorAll<HTMLElement>('.yt-facade[data-id]')
+        .forEach((el) => {
+          const id = el.getAttribute('data-id');
+          if (!id) return;
+          if (!el.style.backgroundImage) {
+            el.style.backgroundImage = `url('https://i.ytimg.com/vi/${id}/hqdefault.jpg')`;
+          }
+          el.setAttribute('role', 'button');
+          el.setAttribute('tabindex', '0');
+          const load = () => {
+            if (el.classList.contains('yt-loaded')) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+            iframe.title = el.getAttribute('data-title') || 'วิดีโอจากหมาสนุก';
+            iframe.allow =
+              'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.cssText =
+              'position:absolute;inset:0;width:100%;height:100%;border:0;';
+            el.classList.add('yt-loaded');
+            el.appendChild(iframe);
+          };
+          el.addEventListener('click', load);
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              load();
+            }
+          });
+        });
+    </script>
   </body>
 </html>

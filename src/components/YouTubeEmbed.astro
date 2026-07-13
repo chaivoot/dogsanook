@@ -1,0 +1,23 @@
+---
+/*
+ * YouTubeEmbed — lazy, privacy-friendly YouTube embed.
+ * Renders a thumbnail facade; the youtube-nocookie player loads on click
+ * (hydrated globally in BaseLayout). Saves Vercel bandwidth vs self-hosting
+ * and keeps the page light (no player scripts until the visitor plays).
+ *
+ * Use in .astro:   <YouTubeEmbed id="VIDEO_ID" title="..." />
+ * Use in Markdown: <div class="yt-facade" data-id="VIDEO_ID" data-title="..."></div>
+ */
+interface Props {
+  id: string;
+  title?: string;
+}
+const { id, title } = Astro.props;
+---
+<div
+  class="yt-facade"
+  data-id={id}
+  data-title={title}
+  aria-label={title ? `เล่นวิดีโอ: ${title}` : 'เล่นวิดีโอ'}
+>
+</div>
