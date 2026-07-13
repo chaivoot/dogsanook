@@ -39,6 +39,18 @@ npm run build    # → dist/
 npm run preview
 ```
 
+## ฝังคลิป YouTube (lazy, ประหยัด bandwidth)
+
+โหลดแค่ thumbnail ก่อน กดแล้วค่อยโหลด player (nocookie) — เบา ไม่ถ่วงเว็บ
+
+- ในไฟล์ `.astro`: `<YouTubeEmbed id="VIDEO_ID" title="..." />`
+- ในบทความ `.md`: เขียน raw HTML ได้เลย
+  ```html
+  <div class="yt-facade" data-id="VIDEO_ID" data-title="..."></div>
+  ```
+
+> คลิปในหน้า gate (`/hand-target`) ให้ตั้งเป็น **Unlisted** บน YouTube · คลิปในบทความสาธารณะเป็น public ได้
+
 ## TODO ก่อน launch (CLAUDE.md §10)
 
 แก้ที่ `src/config/site.ts`:

@@ -101,3 +101,38 @@ details summary::-webkit-details-marker { display: none; }
 .legal a { color: var(--gold-text); }
 .legal strong { color: var(--ink-hero); }
 .legal .lead { font-size: 17px; }
+
+/* Lazy YouTube facade — loads only a thumbnail; the nocookie player is
+   injected on click (see BaseLayout script). Works in .astro via the
+   <YouTubeEmbed> component and in Markdown via raw HTML:
+   <div class="yt-facade" data-id="VIDEO_ID" data-title="..."></div> */
+.yt-facade {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #20302F center / cover no-repeat;
+  box-shadow: 0 14px 30px -20px rgba(42, 37, 33, .6);
+}
+.yt-facade::before { /* play button pill */
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px; height: 48px; border-radius: 14px;
+  background: rgba(42, 37, 33, .82);
+  transition: background .15s;
+}
+.yt-facade::after { /* triangle */
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-38%, -50%);
+  border-style: solid;
+  border-width: 11px 0 11px 18px;
+  border-color: transparent transparent transparent #F4C13C;
+}
+.yt-facade:hover::before { background: #2A2521; }
+.yt-facade.yt-loaded { cursor: default; }
+.yt-facade.yt-loaded::before,
+.yt-facade.yt-loaded::after { display: none; }
+.yt-facade.yt-loaded { background-image: none !important; }
