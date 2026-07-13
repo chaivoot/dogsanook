@@ -19,8 +19,9 @@ export const site = {
   // Teacher (name as written in the approved mockup).
   teacher: 'วุฒิ',
 
-  // Service area — Bangkok only (CLAUDE.md §1/§7). Order kept consistent everywhere.
-  zones: ['รามคำแหง', 'กรุงเทพกรีฑา', 'พระราม 9', 'ลาดกระบัง'],
+  // Service area — Bangkok only (CLAUDE.md §1/§7). Primary focus zones first
+  // (กรุงเทพกรีฑา · รามคำแหง), then also-served zones. Order kept consistent everywhere.
+  zones: ['กรุงเทพกรีฑา', 'รามคำแหง', 'พระราม 9', 'ลาดกระบัง'],
   zonesNearby: ['บางกะปิ', 'ศรีนครินทร์', 'มีนบุรี'],
   city: 'กรุงเทพฯ',
 
@@ -70,9 +71,9 @@ export const site = {
 // SEO strings — based on CLAUDE.md §6, tuned to also carry the higher-volume
 // head terms "ฝึกสุนัข" / "ฝึกหมา" (paired with location for local intent).
 export const seo = {
-  title: 'ฝึกสุนัข ฝึกหมา ถึงบ้าน กรุงเทพฯ (รามคำแหง–ลาดกระบัง) | ครูฝึกสุนัข หมาสนุก',
+  title: 'ฝึกสุนัข ฝึกหมา ถึงบ้าน กรุงเทพกรีฑา–รามคำแหง | ครูฝึกสุนัข หมาสนุก',
   description:
-    'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ — รับฝึกสุนัข ฝึกหมา สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ สอนน้องเรียกแล้วมา ปูพื้นฐานลูกหมา มารยาทในบ้าน โซนรามคำแหง กรุงเทพกรีฑา พระราม 9 ลาดกระบัง — ปรึกษาฟรีทาง LINE',
+    'ครูฝึกสุนัขถึงบ้าน โซนกรุงเทพกรีฑา รามคำแหง (และพระราม 9 ลาดกระบัง) — รับฝึกสุนัข ฝึกหมา สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ สอนน้องเรียกแล้วมา ปูพื้นฐานลูกหมา มารยาทในบ้าน — ปรึกษาฟรีทาง LINE',
   keywords: [
     'ฝึกสุนัข',
     'ฝึกหมา',
