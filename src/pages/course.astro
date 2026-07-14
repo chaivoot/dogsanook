@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+// Course curriculum page — imported from Claude Design "Course Outline.dc.html".
+// IP note (CLAUDE.md §8): the 10 game names are the owner's own creations
+// (Smart Choices, Safe House, Oxy Spot, …), not Susan Garrett's protected
+// program names; Hand Target is a universal technique. All IP-safe.
+
+const outcomes = [
+  { icon: '🛡️', title: 'ปลอดภัยในทุกสถานการณ์', body: 'ยอมให้จับตัวตอนฉุกเฉิน ไม่คว้าของอันตราย เรียกกลับได้เสมอ' },
+  { icon: '🧘', title: 'ควบคุมตัวเองเป็น', body: 'สงบลงได้ รอคำอนุญาต แม้ตื่นเต้นหรือมีสิ่งล่อใจตรงหน้า' },
+  { icon: '💛', title: 'ผูกพันกับเจ้าของลึกซึ้ง', body: 'อยากอยู่ใกล้ อยากวิ่งกลับมาหา เพราะเห็นว่าอยู่กับเรา = ดีที่สุด' },
+  { icon: '🦴', title: 'สุขภาพดี อยู่กับเรานาน ๆ', body: 'ร่างกายแข็งแรง ทรงตัวดี ผ่านการเล่นที่เป็นกายบริหารในตัว' },
+  { icon: '😊', title: 'มีความสุขและมั่นใจ', body: 'เพราะเรียนรู้ผ่านการเล่น ไม่ใช่ผ่านความกลัว' },
+];
+
+const games = [
+  { n: '01', name: 'Human Touch', body: 'น้องยอมให้จับตัว/จับปลอกคอโดยไม่หนี รู้สึกปลอดภัยเมื่อถูกสัมผัส — สำคัญมากในยามฉุกเฉินและตอนไปหาหมอ' },
+  { n: '02', name: 'Smart Choices', body: 'น้องควบคุมตัวเองได้ ไม่คว้า ไม่แย่งของ แม้มีสิ่งที่อยากได้อยู่ตรงหน้า และเลือกที่จะไม่คว้าของอันตรายเอง' },
+  { n: '03', name: 'Safe Spot', body: 'น้องมี “ที่ปลอดภัยที่พกไปได้ทุกที่” สงบลงได้เองแม้อยู่นอกบ้านหรือในที่แปลกใหม่' },
+  { n: '04', name: 'Safe House', body: 'น้องรักกรง เข้าเองอย่างมีความสุข มีที่ปลอดภัยไว้ใช้ตอนเดินทาง ตอนฟ้าร้อง และตอนป่วย' },
+  { n: '05', name: 'Recall เด็กดื้อ', body: 'น้องวิ่งกลับมาหาเมื่อเรียก อย่างมีความสุข (ไม่ใช่เพราะกลัว) ทำให้ปล่อยวิ่งเล่นได้อย่างสบายใจ' },
+  { n: '06', name: 'Hand Target', body: 'น้องเอาจมูกมาแตะฝ่ามือเรา กลายเป็น “รีโมท” ที่เรียกความสนใจกลับและนำร่างกายน้องได้ ช่วยได้มากตอนดูแล/ตัดขน/หาหมอ' },
+  { n: '07', name: 'Oxy Spot', body: 'น้องเดินชิดข้างเราเอง ไม่ลากสาย ไม่พุ่งไปข้างหน้า — เป็นฐานของการเดินสายจูงหย่อนสบาย ๆ' },
+  { n: '08', name: 'Perch Work', body: 'น้องรู้จักควบคุมขาหลัง ร่างกายแข็งแรง ทรงตัวดี ข้อต่อสุขภาพดี — กายบริหารเพื่อให้น้องอยู่กับเรานาน ๆ' },
+  { n: '09', name: 'Hide and Seek', body: 'น้องออกตามหาเราเองเมื่อคลาดสายตา และเห็นว่า “การอยู่ใกล้พ่อแม่” คือเรื่องที่ดีที่สุด' },
+];
+const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเล่นสนุกจนตื่นเต้นได้ แต่หยุด/นั่งได้ทันทีเมื่อสั่ง คืนของเต็มใจ และเห็นว่า “เล่นกับเจ้าของ = สนุกที่สุดในโลก” — รวมทุกทักษะเข้าด้วยกัน' };
+---
+<BaseLayout
+  title="คอร์สฝึกสุนัข 10 เกม เล่นไปฝึกไป | หมาสนุก"
+  description="outline คอร์สหลักหมาสนุก — ฝึกสุนัข 10 เกม เล่นไปฝึกไป ไม่ดุ ไม่บังคับ ให้น้องปลอดภัย ควบคุมตัวเองเป็น ผูกพันกับเจ้าของ และมีความสุข โดยครูฝึกสุนัขถึงบ้าน กรุงเทพฯ"
+  path="/course"
+>
+  <Nav />
+
+  <!-- HERO -->
+  <header id="top" style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px) clamp(52px,7vw,84px);">
+    <div style="max-width:920px;margin:0 auto;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px;margin-bottom:22px;">คอร์สหลักหมาสนุก</div>
+      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(30px,5.5vw,54px);line-height:1.22;margin:0 0 20px;color:#FBF8F1;text-wrap:balance;">10 เกม<span style="color:#F4C13C;">เล่นไปฝึกไป</span></h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.8;color:rgba(251,248,241,.9);margin:0 auto 8px;max-width:52ch;">คอร์สหลักคือการฝึก 10 เกมที่ออกแบบให้ต่อเนื่องกันเป็นระบบ — เราไม่ได้สอนให้น้อง “กลัว” หรือคอย “สั่ง” แต่จัดสถานการณ์ให้น้องเลือกทำสิ่งที่ถูกด้วยตัวเอง จนกลายเป็นนิสัยติดตัว</p>
+    </div>
+  </header>
+
+  <!-- 5 OUTCOMES -->
+  <section data-reveal style="background:#FBF8F1;padding:clamp(52px,7vw,96px) clamp(16px,4vw,48px);">
+    <div style="max-width:1080px;margin:0 auto;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">ฝึกครบ 10 เกม แล้วน้องจะได้อะไร</h2>
+      <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 auto 44px;max-width:44ch;">เมื่อจบครบทั้ง 10 เกม น้องจะได้ 5 สิ่งนี้ติดตัว</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
+        {outcomes.map((o) => (
+          <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:18px;padding:24px 22px;">
+            <div style="font-size:30px;margin-bottom:12px;">{o.icon}</div>
+            <h3 style="font-family:'Sarabun',sans-serif;font-weight:700;font-size:17px;color:#2A2521;margin:0 0 6px;">{o.title}</h3>
+            <p style="font-size:14px;color:#7c7266;line-height:1.65;margin:0;">{o.body}</p>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:38px;text-align:center;">
+        <div style="display:inline-block;background:#2A2521;color:#F4C13C;font-family:'Chonburi',serif;font-size:clamp(18px,2.6vw,24px);padding:16px 30px;border-radius:18px;">หมาที่ “เลือกเป็น” ไม่ใช่แค่ “เชื่อฟัง”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 GAMES -->
+  <section id="games" data-reveal style="background:#F2E9D8;padding:clamp(52px,7vw,96px) clamp(16px,4vw,48px);">
+    <div style="max-width:1120px;margin:0 auto;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">10 เกมในคอร์ส</h2>
+      <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 auto 44px;max-width:46ch;">เรียงต่อเนื่องกันเป็นระบบ ตั้งแต่เกม 1 ถึง 10</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+        {games.map((g) => (
+          <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:20px;padding:26px 26px;display:flex;gap:18px;box-shadow:0 10px 24px -20px rgba(42,37,33,.6);">
+            <div style="flex:0 0 auto;font-family:'Chonburi',serif;font-size:34px;color:#F4C13C;line-height:1;">{g.n}</div>
+            <div>
+              <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:21px;color:#2A2521;margin:0 0 8px;">{g.name}</h3>
+              <p style="font-size:14.5px;color:#6b6157;line-height:1.7;margin:0;">{g.body}</p>
+            </div>
+          </div>
+        ))}
+        <div style="background:#2A2521;border:1px solid #2A2521;border-radius:20px;padding:26px 26px;display:flex;gap:18px;box-shadow:0 14px 30px -18px rgba(42,37,33,.8);position:relative;">
+          <div style="position:absolute;top:16px;right:16px;background:#F4C13C;color:#20302F;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;">บทปิด</div>
+          <div style="flex:0 0 auto;font-family:'Chonburi',serif;font-size:34px;color:#F4C13C;line-height:1;">{finale.n}</div>
+          <div>
+            <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:21px;color:#F4C13C;margin:0 0 8px;">{finale.name}</h3>
+            <p style="font-size:14.5px;color:rgba(251,248,241,.88);line-height:1.7;margin:0;">{finale.body}</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin:36px auto 0;max-width:64ch;text-align:center;font-size:14px;color:#6b6157;font-style:italic;line-height:1.7;">แต่ละเกมมีวิธีฝึกและเทคนิคเฉพาะที่ครูจะพาทำทีละขั้นในคอร์ส — outline นี้บอกไว้แค่ว่าแต่ละเกม “น้องจะได้อะไร” ส่วนวิธีเล่นจริง ครูดูแลให้ครบทุกสเต็ป</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" data-reveal style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(60px,8vw,110px) clamp(16px,4vw,48px);text-align:center;">
+    <div style="max-width:720px;margin:0 auto;">
+      <img src="/uploads/logo-gold-mark.png" alt="โลโก้ หมาสนุก" width="120" height="120" style="width:120px;height:120px;margin:0 auto 20px;display:block;" />
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,46px);line-height:1.25;margin:0 0 16px;color:#FBF8F1;text-wrap:balance;">พร้อมเริ่ม<span style="color:#F4C13C;">10 เกม</span>กับน้องหรือยัง?</h2>
+      <p style="font-size:16px;line-height:1.75;color:rgba(251,248,241,.85);margin:0 auto 28px;max-width:44ch;">วิธีฝึกจริง ครูดูแลให้ทุกสเต็ปในคอร์สฝึกถึงบ้าน — ทักมาเล่าเรื่องน้องได้เลย ปรึกษาฟรี</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 4px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 0 #DFA714'"><span style="font-size:20px;">💬</span> แอด LINE จองคอร์ส</a>
+        <a href="/#pricing" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#FBF8F1;font-weight:600;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.5);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.5)'">ดูแพ็กเกจ &amp; ราคา →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
