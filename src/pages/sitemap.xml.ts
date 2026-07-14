@@ -7,6 +7,7 @@ export const GET: APIRoute = async () => {
   const urls = [
     { loc: `${site.domain}/`, priority: '1.0' },
     { loc: `${site.domain}/course`, priority: '0.8' },
+    { loc: `${site.domain}/mommam`, priority: '0.6' },
     // /hand-target is intentionally excluded — it's a LINE-only gated guide (noindex).
     { loc: `${site.domain}/blog`, priority: '0.8' },
     { loc: `${site.domain}/terms`, priority: '0.3' },

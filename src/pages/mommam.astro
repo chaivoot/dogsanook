@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import { site } from '../config/site';
+// Imported from Claude Design "Mommam Profile.dc.html" — a public demo of the
+// per-dog learning-progress tracker every customer gets. Game names are the
+// owner's own (IP-safe, CLAUDE.md §8). Brand teal (--brand-teal #178C88)
+// finally appears here for owner-checked items.
+
+// state: 'gold' = ครูเช็ก ผ่าน · 'teal' = เจ้าของฝึกเอง · 'dash' = ยังไม่ผ่าน
+const games = [
+  { n: '01', name: 'Human Touch', rows: [['สอนแล้ว', 'gold'], ['น้องทำได้แล้ว', 'gold'], ['เจ้าของฝึกเอง', 'teal']] },
+  { n: '02', name: 'Smart Choices', rows: [['สอนแล้ว', 'gold'], ['น้องทำได้แล้ว', 'gold'], ['เจ้าของยังไม่ฝึก', 'dash']] },
+  { n: '03', name: 'Safe Spot', rows: [['สอนแล้ว', 'gold'], ['น้องทำได้แล้ว', 'gold'], ['เจ้าของฝึกเอง', 'teal']] },
+  { n: '04', name: 'Safe House', rows: [['สอนแล้ว', 'gold'], ['กำลังฝึก ยังทำไม่ได้', 'dash'], ['เจ้าของยังไม่ฝึก', 'dash']] },
+  { n: '05', name: 'Recall เด็กดื้อ', rows: [['สอนแล้ว', 'gold'], ['น้องทำได้แล้ว', 'gold'], ['เจ้าของฝึกเอง', 'teal']] },
+  { n: '06', name: 'Hand Target', rows: [['สอนแล้ว', 'gold'], ['กำลังฝึก ยังทำไม่ได้', 'dash'], ['เจ้าของฝึกเอง', 'teal']] },
+];
+const locked = [
+  { n: '07', name: 'Oxy Spot' },
+  { n: '08', name: 'Perch Work' },
+  { n: '09', name: 'Hide and Seek' },
+  { n: '10', name: 'หมาสนุก' },
+];
+const logs = [
+  { src: '/uploads/1745999842474.jpg', title: 'ครั้งที่ 6 · Hand Target', date: '12 ธ.ค. 2568' },
+  { src: '/uploads/PXL_20251012_035818088.jpg', title: 'ครั้งที่ 5 · Recall', date: '28 พ.ย. 2568' },
+  { src: '/uploads/PXL_20251214_144515964.jpg', title: 'ครั้งที่ 3 · Safe Spot', date: '10 พ.ย. 2568' },
+  { src: undefined, title: 'ครั้งที่ 1 · Human Touch', date: '26 ต.ค. 2568' },
+];
+const values = [
+  { icon: '🔍', title: 'โปร่งใส เห็นทุกสเต็ป', body: 'รู้เสมอว่าน้องเรียนถึงไหน ทำอะไรได้แล้ว' },
+  { icon: '📈', title: 'เห็นพัฒนาการชัด', body: 'ภาพและสถานะย้อนหลังทุกครั้งที่ฝึก' },
+  { icon: '🤝', title: 'ครูกับเจ้าของร่วมมือกัน', body: 'เจ้าของบันทึกการบ้าน ฝึกไปด้วยกัน' },
+];
+---
+<BaseLayout
+  title="โปรไฟล์การเรียนของมอมแมม · ระบบติดตาม 10 เกม | หมาสนุก"
+  description="ตัวอย่างระบบติดตามการเรียนรู้ที่ลูกค้าหมาสนุกทุกคนจะได้ — เห็นชัดว่าน้องเรียนถึงเกมไหน ทำอะไรได้แล้ว พร้อมบันทึกภาพทุกครั้งที่ฝึก ผ่านโปรไฟล์ของมอมแมม (เชลตี้)"
+  path="/mommam"
+>
+  <Nav />
+
+  <!-- HERO PROFILE -->
+  <header id="top" style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(44px,7vw,80px) clamp(16px,4vw,48px);">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,52px);align-items:center;">
+      <div style="flex:0 0 auto;">
+        <div style="width:clamp(160px,26vw,220px);height:clamp(160px,26vw,220px);border-radius:50%;overflow:hidden;border:4px solid rgba(244,193,60,.4);box-shadow:0 20px 40px -18px rgba(0,0,0,.6);">
+          <ImageSlot src="/uploads/PXL_20251214_144515964.jpg" alt="มอมแมม สุนัขพันธุ์เชลตี้ คู่หูของครูหมาสนุก" loading="eager" />
+        </div>
+      </div>
+      <div style="flex:1 1 340px;min-width:280px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:13px;padding:6px 13px;border-radius:999px;margin-bottom:16px;">📋 ระบบติดตามการเรียนรู้</div>
+        <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 8px;color:#FBF8F1;">มอมแมม</h1>
+        <p style="font-size:16px;color:rgba(251,248,241,.75);margin:0 0 18px;">Shetland Sheepdog (เชลตี้) · คู่หูประจำตัวของครูหมาสนุก</p>
+        <p style="font-size:15.5px;line-height:1.75;color:rgba(251,248,241,.9);margin:0 0 26px;max-width:44ch;">นี่คือตัวอย่างจริงของระบบติดตามที่ลูกค้าหมาสนุกทุกคนจะได้ — เห็นชัดว่าน้องเรียนถึงไหน ทำอะไรได้แล้ว และการบ้านที่เจ้าของฝึกเอง</p>
+        <div style="background:rgba(251,248,241,.07);border:1px solid rgba(244,193,60,.28);border-radius:18px;padding:20px 24px;max-width:420px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+            <span style="font-size:14px;color:rgba(251,248,241,.8);font-weight:600;">ความคืบหน้ารวม</span>
+            <span style="font-family:'Chonburi',serif;font-size:24px;color:#F4C13C;">6 / 10</span>
+          </div>
+          <div style="height:12px;border-radius:999px;background:rgba(251,248,241,.15);overflow:hidden;">
+            <div style="width:60%;height:100%;background:linear-gradient(90deg,#DFA714,#F4C13C);border-radius:999px;"></div>
+          </div>
+          <p style="font-size:12.5px;color:rgba(251,248,241,.6);margin:10px 0 0;">เรียนถึงเกม 6 จาก 10 · อีก 4 เกมรอเรียน</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LEGEND -->
+  <section style="background:#FBF8F1;padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 0;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(24px,4vw,40px);line-height:1.2;margin:0 0 10px;color:#2A2521;text-align:center;">ระบบติดตาม 10 เกม</h2>
+      <p style="text-align:center;font-size:15.5px;color:#6b6157;margin:0 auto 26px;max-width:50ch;">แต่ละเกมมี 3 สถานะ — 2 อย่างครูเป็นคนเช็ก 1 อย่างเจ้าของเช็กเอง</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(140,120,80,.18);border-radius:12px;padding:10px 16px;"><span style="width:22px;height:22px;border-radius:6px;background:#F4C13C;color:#20302F;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;">✓</span><span style="font-size:13.5px;"><strong style="color:#8A6A18;">สอนแล้ว</strong> <span style="color:#9a8f80;">· ครูเช็ก</span></span></div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(140,120,80,.18);border-radius:12px;padding:10px 16px;"><span style="width:22px;height:22px;border-radius:6px;background:#F4C13C;color:#20302F;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;">✓</span><span style="font-size:13.5px;"><strong style="color:#8A6A18;">น้องทำได้แล้ว</strong> <span style="color:#9a8f80;">· ครูเช็ก</span></span></div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(140,120,80,.18);border-radius:12px;padding:10px 16px;"><span style="width:22px;height:22px;border-radius:6px;background:#178C88;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;">✓</span><span style="font-size:13.5px;"><strong style="color:#178C88;">เจ้าของฝึกเอง</strong> <span style="color:#9a8f80;">· เจ้าของเช็ก</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKING GRID -->
+  <section data-reveal style="background:#FBF8F1;padding:clamp(28px,4vw,44px) clamp(16px,4vw,48px) clamp(52px,7vw,96px);">
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;">
+      {games.map((g) => (
+        <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:18px;padding:22px 22px;box-shadow:0 10px 24px -20px rgba(42,37,33,.55);">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><span style="font-family:'Chonburi',serif;font-size:26px;color:#F4C13C;line-height:1;">{g.n}</span><h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:19px;color:#2A2521;margin:0;">{g.name}</h3></div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            {g.rows.map(([label, state]) => (
+              <div style="display:flex;align-items:center;gap:10px;">
+                {state === 'gold' && <span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#F4C13C;color:#20302F;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;">✓</span>}
+                {state === 'teal' && <span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#178C88;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;">✓</span>}
+                {state === 'dash' && <span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#F7F3EA;border:1.5px dashed #c9bda6;display:inline-block;"></span>}
+                <span style={`font-size:14px;color:${state === 'dash' ? '#a99e8d' : '#2A2521'};`}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+      {locked.map((g) => (
+        <div style="background:#F4EEE2;border:1px dashed #cabda6;border-radius:18px;padding:22px 22px;opacity:.75;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Chonburi',serif;font-size:26px;color:#c2b7a3;line-height:1;">{g.n}</span><h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:19px;color:#9a8f80;margin:0;">{g.name}</h3></div>
+          <div style="display:flex;align-items:center;gap:8px;color:#a99e8d;font-size:14px;">🔒 ยังไม่เริ่ม · รอเรียน</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TRAINING PHOTOS -->
+  <section data-reveal style="background:#F2E9D8;padding:clamp(52px,7vw,96px) clamp(16px,4vw,48px);">
+    <div style="max-width:1080px;margin:0 auto;">
+      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(24px,4vw,40px);line-height:1.2;margin:0 0 10px;color:#2A2521;text-align:center;">บันทึกภาพทุกครั้งที่ฝึก</h2>
+      <p style="text-align:center;font-size:15.5px;color:#6b6157;margin:0 auto 40px;max-width:50ch;">ครูอัปโหลดรูปทุกครั้งที่มาฝึก — เจ้าของเห็นพัฒนาการของน้องย้อนหลังได้ทั้งหมด</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        {logs.map((l) => (
+          <figure style="margin:0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px -20px rgba(42,37,33,.6);">
+            <div style="aspect-ratio:4/3;"><ImageSlot src={l.src} alt={`มอมแมมฝึก ${l.title}`} placeholder="รูปการฝึก" /></div>
+            <figcaption style="padding:12px 14px;"><div style="font-size:13px;font-weight:700;color:#8A6A18;">{l.title}</div><div style="font-size:12.5px;color:#9a8f80;margin-top:2px;">{l.date}</div></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE + CTA -->
+  <section id="cta" data-reveal style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
+    <div style="max-width:960px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:44px;">
+        {values.map((v) => (
+          <div style="background:rgba(251,248,241,.06);border:1px solid rgba(244,193,60,.24);border-radius:16px;padding:22px;">
+            <div style="font-size:26px;margin-bottom:10px;">{v.icon}</div>
+            <h3 style="font-family:'Sarabun',sans-serif;font-weight:700;font-size:16px;color:#F4C13C;margin:0 0 6px;">{v.title}</h3>
+            <p style="font-size:14px;color:rgba(251,248,241,.82);line-height:1.65;margin:0;">{v.body}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;">
+        <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(24px,4vw,40px);line-height:1.28;margin:0 0 22px;color:#FBF8F1;text-wrap:balance;">อยากให้น้องมีโปรไฟล์<br />แบบมอมแมมไหม?</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 4px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 0 #DFA714'"><span style="font-size:20px;">💬</span> ทัก LINE จองคอร์สเลย</a>
+          <a href="/course" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#FBF8F1;font-weight:600;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.5);transition:border-color .15s;" onmouseover="this.style.borderColor='#F4C13C'" onmouseout="this.style.borderColor='rgba(251,248,241,.5)'">ดูคอร์ส 10 เกม →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
