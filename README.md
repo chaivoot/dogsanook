@@ -10,8 +10,8 @@ Landing page + blog สำหรับ **หมาสนุก (dogsanook)** —
 ## Stack
 
 - **[Astro](https://astro.build)** — static marketing site + blog (เร็ว, SEO ดี)
-- **Blog** = Astro Content Collection (Markdown) → เนื้อหา portable
-- **Deploy** = Vercel (custom domain `dogsanook.com`), auto-detect Astro → `dist/`
+- **Blog** = Astro Content Collection (Markdown) → เนื้อหา portable · แก้ผ่าน **Keystatic CMS** ที่ `/keystatic`
+- **Deploy** = Vercel (custom domain `dogsanook.com`) · Vercel adapter (`.vercel/output`) — เว็บยัง static เกือบทั้งหมด ยกเว้น route ของ Keystatic
 - **Phase 2** = `games.dogsanook.com` (คอร์สออนไลน์, Next.js) — แยก subdomain ไม่แตะ repo นี้
 
 ## โครงสร้าง
@@ -35,9 +35,35 @@ public/uploads/         โลโก้ / รูปครู+มอมแมม 
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # → dist/
+npm run build    # → .vercel/output (มี Vercel adapter สำหรับ route ของ Keystatic)
 npm run preview
 ```
+
+## Blog CMS — Keystatic (แก้/เพิ่มบทความผ่านหน้าเว็บ)
+
+หน้า admin อยู่ที่ **`/keystatic`** — พิมพ์ Markdown ได้เลย ไม่ต้องแตะโค้ด
+เนื้อหายังเก็บเป็นไฟล์ `.md` ใน `src/content/blog/` เหมือนเดิม (portable)
+
+- **ตอน dev** (`npm run dev` → `/keystatic`): โหมด **local** — กดเซฟแล้วเขียนลงไฟล์ในเครื่องเลย ไม่ต้อง login
+- **ตอน production** (`dogsanook.com/keystatic`): โหมด **GitHub** — กดเซฟ = commit เข้า repo → Vercel rebuild → บทความขึ้นเว็บ (~1 นาที)
+
+### ตั้งค่าครั้งเดียวสำหรับ production (GitHub App)
+
+หน้าการตลาด/blog ทั้งหมดยังเป็น **static** — มีแค่ `/keystatic` + `/api/keystatic`
+ที่รันฝั่ง server (ผ่าน Vercel adapter) การ login ใช้ GitHub App ตั้งครั้งเดียว:
+
+1. Deploy ขึ้น Vercel ตามปกติ (ยังไม่ต้องมี env ของ Keystatic)
+2. เปิด **`https://dogsanook.com/keystatic`** → Keystatic จะขึ้นหน้า setup ให้ **"สร้าง GitHub App"** (กรอกชื่อ/สิทธิ์/callback ให้อัตโนมัติ ชี้มาที่ repo `chaivoot/dogsanook`)
+3. กดสร้าง → GitHub พากลับมา แล้ว Keystatic จะโชว์ค่า env 4 ตัว — ก็อปไปใส่ใน **Vercel → Settings → Environment Variables**:
+   ```
+   KEYSTATIC_GITHUB_CLIENT_ID=
+   KEYSTATIC_GITHUB_CLIENT_SECRET=
+   KEYSTATIC_SECRET=
+   PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=
+   ```
+4. **Redeploy** ครั้งนึง → หลังจากนั้นเข้า `/keystatic` login ด้วย GitHub ได้เลย แก้/เพิ่มบทความ กดเซฟ = ขึ้นเว็บ
+
+> ยังไม่ตั้ง GitHub App ก็ไม่กระทบเว็บหลัก — หน้า `/keystatic` แค่ยัง login ไม่ได้เท่านั้น ส่วนที่เหลือของเว็บทำงานปกติ
 
 ## ฝังคลิป YouTube (lazy, ประหยัด bandwidth)
 
