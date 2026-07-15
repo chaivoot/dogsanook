@@ -2,10 +2,6 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { site } from '../config/site';
 
-// Keep the sitemap a static file even though an adapter is present
-// (Keystatic added on-demand routes). Nothing here is request-dependent.
-export const prerender = true;
-
 export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const urls = [
