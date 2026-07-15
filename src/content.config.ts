@@ -11,6 +11,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
+    heroRatio: z.string().optional(), // hero aspect-ratio (default 16/9). e.g. "1/1" for a square photo.
     draft: z.boolean().default(false),
   }),
 });

@@ -15,6 +15,10 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const fmt = (d: Date) =>
   d.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+// Hero aspect: default landscape 16/9. A non-landscape ratio (e.g. a square
+// photo) is capped + centred so it reads as a framed shot, not a giant banner.
+const heroRatio = post.data.heroRatio ?? '16/9';
+const heroWide = heroRatio === '16/9';
 ---
 <BaseLayout
   title={`${post.data.title} | หมาสนุก`}
@@ -29,7 +33,7 @@ const fmt = (d: Date) =>
     <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,4.6vw,44px);line-height:1.25;margin:0 0 12px;color:#2A2521;">{post.data.title}</h1>
     <div style="font-size:13.5px;color:#b0a595;margin-bottom:26px;">{fmt(post.data.pubDate)}</div>
     {post.data.heroImage && (
-      <div style="aspect-ratio:16/9;border-radius:20px;overflow:hidden;margin-bottom:30px;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);">
+      <div style={`aspect-ratio:${heroRatio};max-width:${heroWide ? '100%' : '460px'};margin:0 auto 30px;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);`}>
         <ImageSlot src={post.data.heroImage} alt={post.data.heroAlt ?? post.data.title} loading="eager" />
       </div>
     )}
