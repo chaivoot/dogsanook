@@ -41,7 +41,7 @@ export const site = {
     name: 'โมเมนต์ recall จริง — มอมแมมวิ่งเข้าหา (เล่นไปฝึกไป)',
     description:
       'คลิปฝึกจริงสไตล์เล่นไปฝึกไป — มอมแมม (เชลตี้) เรียกแล้ววิ่งเข้าหา โดยครูฝึกสุนัขถึงบ้าน หมาสนุก กรุงเทพฯ',
-    uploadDate: '2025-12-14',
+    uploadDate: '2025-12-14T09:00:00+07:00', // ISO 8601 with timezone (Google requires it)
     duration: 'PT22S',
   },
 
