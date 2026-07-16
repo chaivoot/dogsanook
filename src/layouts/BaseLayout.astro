@@ -66,6 +66,22 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
     />
 
     {includeBusinessSchema && <SeoSchema />}
+
+    {/* Google Analytics 4 — cookieless (client_storage:'none' → no _ga cookie,
+        so the "no cookies" privacy policy stays true, no consent banner needed).
+        Runs only on the live domain, not localhost or Vercel preview. */}
+    <script define:vars={{ gaId: site.gaId }}>
+      if (gaId && location.hostname === 'dogsanook.com') {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', gaId, { client_storage: 'none' });
+      }
+    </script>
   </head>
   <body>
     <slot />
