@@ -15,7 +15,7 @@ export const site = {
   // Google Analytics 4 — loaded cookieless (client_storage:'none') and only on
   // the live domain, so the "no cookies" privacy policy stays true and no
   // consent banner is needed. See BaseLayout.
-  gaId: 'G-9Y6SQP46WT',
+  gaId: 'G-PLER0SERS5',
 
   // Positioning (CLAUDE.md §3): game-based is the core, recall is a result.
   tagline: 'เล่นไปฝึกไป · ไม่ดุ ไม่บังคับ',
