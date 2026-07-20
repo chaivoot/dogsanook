@@ -92,5 +92,7 @@ export const seo = {
     'ฝึกสุนัข รามคำแหง',
     'ฝึกสุนัข ลาดกระบัง',
   ],
-  ogImage: '/uploads/mommam-gold.png',
+  // Social share image (LINE/FB). A landscape trainer+dog photo shares better
+  // than the square logo — real person + dog, crops cleanly to ~1.91:1.
+  ogImage: '/uploads/1745999842474.jpg',
 } as const;
