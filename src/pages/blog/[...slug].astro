@@ -19,6 +19,31 @@ const fmt = (d: Date) =>
 // photo) is capped + centred so it reads as a framed shot, not a giant banner.
 const heroRatio = post.data.heroRatio ?? '16/9';
 const heroWide = heroRatio === '16/9';
+
+// BlogPosting structured data — helps Google treat each post as an article
+// (eligible for date/image in results). publisher/logo match the LocalBusiness.
+const postSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  ...(post.data.heroImage
+    ? { image: new URL(post.data.heroImage, site.domain).href }
+    : {}),
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: post.data.pubDate.toISOString(),
+  inLanguage: 'th',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.domain}/blog/${post.id}` },
+  author: { '@type': 'Person', name: `ครู${site.teacher} — ${site.name}` },
+  publisher: {
+    '@type': 'Organization',
+    name: site.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${site.domain}/uploads/logo-gold-mark.png`,
+    },
+  },
+};
 ---
 <BaseLayout
   title={`${post.data.title} | หมาสนุก`}
@@ -26,6 +51,7 @@ const heroWide = heroRatio === '16/9';
   path={`/blog/${post.id}`}
   ogImage={post.data.heroImage ?? undefined}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(postSchema)} />
   <Nav />
   <main style="max-width:760px;margin:0 auto;padding:clamp(32px,6vw,64px) clamp(16px,4vw,48px);">
     <a href="/blog" style="display:inline-flex;align-items:center;gap:6px;color:#8A6A18;font-weight:600;font-size:14px;text-decoration:none;margin-bottom:22px;">← กลับไปหน้าบทความ</a>
