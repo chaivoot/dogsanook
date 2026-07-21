@@ -27,12 +27,15 @@ export const site = {
   // Service area — mainly Bangkok east/south-east + บางพลี (สมุทรปราการ, ติดลาดกระบัง).
   // Primary focus zones first (กรุงเทพกรีฑา · รามคำแหง), then also-served zones.
   // Order kept consistent everywhere.
-  zones: ['กรุงเทพกรีฑา', 'รามคำแหง', 'พระราม 9', 'ลาดกระบัง', 'บางพลี'],
+  zones: ['กรุงเทพกรีฑา', 'รามคำแหง', 'พระราม 9', 'ลาดกระบัง', 'บางพลี', 'สุวรรณภูมิ'],
   zonesNearby: ['บางกะปิ', 'ศรีนครินทร์', 'มีนบุรี'],
   city: 'กรุงเทพฯ',
-  // Province override per zone (default = city กรุงเทพฯ). บางพลี is in สมุทรปราการ,
-  // so schema/text must not label it "กรุงเทพฯ".
-  zoneProvince: { 'บางพลี': 'สมุทรปราการ' } as Record<string, string>,
+  // Province override per zone (default = city กรุงเทพฯ). บางพลี + สุวรรณภูมิ are in
+  // สมุทรปราการ (สุวรรณภูมิ = landmark/ย่านในบางพลี), so must not be labelled "กรุงเทพฯ".
+  zoneProvince: {
+    'บางพลี': 'สมุทรปราการ',
+    'สุวรรณภูมิ': 'สมุทรปราการ',
+  } as Record<string, string>,
 
   // LINE Official Account = @dogsanook. Add-friend deep link.
   lineOaId: '@dogsanook',
@@ -96,6 +99,7 @@ export const seo = {
     'ฝึกสุนัข รามคำแหง',
     'ฝึกสุนัข ลาดกระบัง',
     'ฝึกสุนัข บางพลี',
+    'ฝึกสุนัข สุวรรณภูมิ',
   ],
   // Social share image (LINE/FB). A landscape trainer+dog photo shares better
   // than the square logo — real person + dog, crops cleanly to ~1.91:1.
