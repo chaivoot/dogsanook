@@ -36,7 +36,7 @@ const schema = {
   },
   areaServed: [...site.zones, ...site.zonesNearby].map((z) => ({
     '@type': 'Place',
-    name: `${z} ${site.city}`,
+    name: `${z} ${site.zoneProvince[z] ?? site.city}`,
   })),
   address: {
     '@type': 'PostalAddress',
@@ -50,7 +50,7 @@ const schema = {
       '@type': 'Service',
       name: 'ฝึกสุนัขถึงบ้าน สไตล์เล่นไปฝึกไป',
       serviceType: 'ครูฝึกสุนัขถึงบ้าน',
-      areaServed: site.zones.map((z) => `${z} ${site.city}`),
+      areaServed: site.zones.map((z) => `${z} ${site.zoneProvince[z] ?? site.city}`),
     },
     priceCurrency: 'THB',
     price: String(site.pricing.firstSession.promo),

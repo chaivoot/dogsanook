@@ -24,11 +24,15 @@ export const site = {
   // Teacher (name as written in the approved mockup).
   teacher: 'วุฒิ',
 
-  // Service area — Bangkok only (CLAUDE.md §1/§7). Primary focus zones first
-  // (กรุงเทพกรีฑา · รามคำแหง), then also-served zones. Order kept consistent everywhere.
-  zones: ['กรุงเทพกรีฑา', 'รามคำแหง', 'พระราม 9', 'ลาดกระบัง'],
+  // Service area — mainly Bangkok east/south-east + บางพลี (สมุทรปราการ, ติดลาดกระบัง).
+  // Primary focus zones first (กรุงเทพกรีฑา · รามคำแหง), then also-served zones.
+  // Order kept consistent everywhere.
+  zones: ['กรุงเทพกรีฑา', 'รามคำแหง', 'พระราม 9', 'ลาดกระบัง', 'บางพลี'],
   zonesNearby: ['บางกะปิ', 'ศรีนครินทร์', 'มีนบุรี'],
   city: 'กรุงเทพฯ',
+  // Province override per zone (default = city กรุงเทพฯ). บางพลี is in สมุทรปราการ,
+  // so schema/text must not label it "กรุงเทพฯ".
+  zoneProvince: { 'บางพลี': 'สมุทรปราการ' } as Record<string, string>,
 
   // LINE Official Account = @dogsanook. Add-friend deep link.
   lineOaId: '@dogsanook',
@@ -91,6 +95,7 @@ export const seo = {
     'ฝึกลูกสุนัข',
     'ฝึกสุนัข รามคำแหง',
     'ฝึกสุนัข ลาดกระบัง',
+    'ฝึกสุนัข บางพลี',
   ],
   // Social share image (LINE/FB). A landscape trainer+dog photo shares better
   // than the square logo — real person + dog, crops cleanly to ~1.91:1.
