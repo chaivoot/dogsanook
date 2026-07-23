@@ -1,22 +1,22 @@
 ---
 /*
- * JSON-LD: LocalBusiness + Service (CLAUDE.md §6).
- * A Service Area Business (no public storefront) serving Bangkok zones.
+ * JSON-LD @graph: LocalBusiness + WebSite + VideoObject (CLAUDE.md §6).
+ * A Service Area Business (no public storefront) serving Bangkok + Samut Prakan
+ * zones. All nodes are linked by @id so the entities reference one another.
  * areaServed / sameAs / priceRange kept in sync with src/config/site.ts.
  */
 import { site } from '../config/site';
 
 const sameAs = Object.values(site.social);
 
-const schema = {
-  '@context': 'https://schema.org',
+const business = {
   '@type': 'LocalBusiness',
   '@id': `${site.domain}/#business`,
   name: site.name,
   alternateName: site.nameEn,
   url: site.domain,
-  image: `${site.domain}${'/uploads/logo-gold-mark.png'}`,
-  logo: `${site.domain}${'/uploads/logo-gold-mark.png'}`,
+  image: `${site.domain}/uploads/logo-gold-mark.png`,
+  logo: `${site.domain}/uploads/logo-gold-mark.png`,
   description:
     'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ',
   telephone: site.phoneTel,
@@ -56,9 +56,20 @@ const schema = {
     price: String(site.pricing.firstSession.promo),
   },
 };
-const videoSchema = {
-  '@context': 'https://schema.org',
+
+const website = {
+  '@type': 'WebSite',
+  '@id': `${site.domain}/#website`,
+  url: site.domain,
+  name: site.name,
+  alternateName: site.nameEn,
+  inLanguage: 'th',
+  publisher: { '@id': `${site.domain}/#business` },
+};
+
+const video = {
   '@type': 'VideoObject',
+  '@id': `${site.domain}/#hero-video`,
   name: site.heroVideo.name,
   description: site.heroVideo.description,
   thumbnailUrl: [new URL(site.heroVideo.poster, site.domain).href],
@@ -66,7 +77,12 @@ const videoSchema = {
   uploadDate: site.heroVideo.uploadDate,
   duration: site.heroVideo.duration,
   publisher: { '@id': `${site.domain}/#business` },
+  isPartOf: { '@id': `${site.domain}/#website` },
+};
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [business, website, video],
 };
 ---
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
-<script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
