@@ -10,6 +10,7 @@ const blog = defineCollection({
     category: z.string(),
     pubDate: z.coerce.date(),
     heroImage: z.string().optional(),
+    heroVideo: z.string().optional(), // mp4 path — if set, the hero is a muted autoplay-loop <video> instead of an image
     heroAlt: z.string().optional(),
     heroRatio: z.string().optional(), // hero aspect-ratio (default 16/9). e.g. "1/1" for a square photo.
     draft: z.boolean().default(false),
