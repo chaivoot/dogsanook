@@ -61,6 +61,28 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+// VideoObject — only when the post has a hero video (needs a thumbnail, i.e.
+// heroImage as poster). Makes the post eligible for a video result in Google.
+const videoSchema = post.data.heroVideo
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: post.data.title,
+      description: post.data.description,
+      ...(post.data.heroImage
+        ? { thumbnailUrl: [new URL(post.data.heroImage, site.domain).href] }
+        : {}),
+      contentUrl: new URL(post.data.heroVideo, site.domain).href,
+      uploadDate: post.data.pubDate.toISOString(),
+      ...(post.data.heroVideoDuration ? { duration: post.data.heroVideoDuration } : {}),
+      publisher: {
+        '@type': 'Organization',
+        name: site.name,
+        logo: { '@type': 'ImageObject', url: `${site.domain}/uploads/logo-gold-mark.png` },
+      },
+    }
+  : null;
 ---
 <BaseLayout
   title={`${post.data.title} | หมาสนุก`}
@@ -70,6 +92,7 @@ const breadcrumbSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(postSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {videoSchema && <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />}
   <Nav />
   <main style="max-width:760px;margin:0 auto;padding:clamp(32px,6vw,64px) clamp(16px,4vw,48px);">
     <a href="/blog" style="display:inline-flex;align-items:center;gap:6px;color:#8A6A18;font-weight:600;font-size:14px;text-decoration:none;margin-bottom:22px;">← กลับไปหน้าบทความ</a>
@@ -79,6 +102,7 @@ const breadcrumbSchema = {
     {post.data.heroVideo ? (
       <video
         src={post.data.heroVideo}
+        poster={post.data.heroImage ?? undefined}
         autoplay
         muted
         loop
