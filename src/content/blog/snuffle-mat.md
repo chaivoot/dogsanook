@@ -5,7 +5,7 @@ category: "พรมดมกลิ่น"
 pubDate: 2026-07-26
 heroVideo: "/uploads/dogsanook-snuffle-mat-dog-training.mp4"
 heroImage: "/uploads/dog-training-snuffle-mat.jpg"
-heroVideoDuration: "PT5S"
+heroVideoDuration: "PT10S"
 heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้ ใช้จมูกดุนหาขนมในพรมดมกลิ่น (snuffle mat) กิจกรรมฝึกหมาให้สงบและได้ใช้สมอง"
 draft: false
 ---
