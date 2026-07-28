@@ -23,6 +23,38 @@ export const site = {
 
   // Teacher (name as written in the approved mockup).
   teacher: 'วุฒิ',
+  // Full name as printed on the credentials below — used as Person alternateName
+  // in schema so the author entity matches the verifiable certificates.
+  teacherNameEn: 'Chaivoot Patipakorn',
+
+  // Verifiable dog-related credentials (E-E-A-T). Rendered as text badges that
+  // link to the official verification page — we do NOT host the certificate
+  // images ourselves. The Susan Garrett line is text-only per CLAUDE.md §8:
+  // reference her course by attribution, never her program name / logo / slogan
+  // ("Recallers", "Every day is game day"), and never link her certificate.
+  credentials: [
+    {
+      name: 'Pet Nutrition Coach Certification',
+      issuer: 'NAVC · North American Veterinary Community',
+      note: 'โภชนาการสัตว์เลี้ยง · 8 ชม. RACE-approved CE',
+      year: '2026',
+      url: 'https://certificates.navc.com/6970a13d-abb7-4722-a24d-dde27a496514#acc.bjiH7L2K',
+    },
+    {
+      name: 'เข้าใจพฤติกรรมสุนัขและการจัดการปัญหาในเบื้องต้น',
+      issuer: 'มหาวิทยาลัยมหิดล · Mahidol Channel Academy (MCA)',
+      note: 'พฤติกรรมสุนัขและการจัดการปัญหาเบื้องต้น',
+      year: '2026',
+      url: 'https://channel.mahidol.ac.th/storage/mca/certificate/27/27-1778666109-certificate_mca.png',
+    },
+    {
+      name: 'หน่วยกิตต่อเนื่อง (CEU) 25 หน่วย · รับรองโดย IAABC',
+      issuer: 'IAABC · จากการเรียนคอร์สของ Susan Garrett',
+      note: 'การฝึกเชิงบวกแนว game-based / ให้หมาได้เลือกเอง',
+      year: '2024',
+      url: null as string | null,
+    },
+  ],
 
   // Service area — mainly Bangkok east/south-east + บางพลี (สมุทรปราการ, ติดลาดกระบัง).
   // Primary focus zones first (กรุงเทพกรีฑา · รามคำแหง), then also-served zones.
