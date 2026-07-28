@@ -51,7 +51,7 @@ export const site = {
       name: 'หน่วยกิตต่อเนื่อง (CEU) 25 หน่วย · รับรองโดย IAABC',
       issuer: 'IAABC · จากการเรียนคอร์สของ Susan Garrett',
       note: 'การฝึกเชิงบวกแนว game-based / ให้หมาได้เลือกเอง',
-      year: '2024',
+      year: '2026',
       url: null as string | null,
     },
   ],
