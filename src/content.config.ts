@@ -14,6 +14,7 @@ const blog = defineCollection({
     heroVideoDuration: z.string().optional(), // ISO 8601 (e.g. "PT16S") for VideoObject schema
     heroAlt: z.string().optional(),
     heroRatio: z.string().optional(), // hero aspect-ratio (default 16/9). e.g. "1/1" for a square photo.
+    hideHero: z.boolean().default(false), // use heroImage only as the listing/home/og thumbnail, don't render it as the in-article hero (e.g. when the post's main visual is an embedded video)
     draft: z.boolean().default(false),
   }),
 });
