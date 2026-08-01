@@ -83,7 +83,7 @@ export const site = {
   gbpReviewUrl: 'https://g.page/r/Cc_pXfnF9IDfEBM/review', // opens the write-a-review dialog
   gbpUrl: 'https://g.page/r/Cc_pXfnF9IDfEBM', // profile (read reviews)
   reviewRating: '5.0',
-  reviewCount: 2,
+  reviewCount: 5,
 
   // Hero recall clip — metadata for VideoObject schema (helps Google index
   // the video + become eligible for a video thumbnail in search results).
