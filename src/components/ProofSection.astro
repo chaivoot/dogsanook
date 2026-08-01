@@ -1,16 +1,28 @@
 ---
-import ImageSlot from './ImageSlot.astro';
-// Reviews area intentionally left to fill later (no customers yet — §5).
+import { site } from '../config/site';
+// Social proof = live Google Business Profile reviews. A visual 5.0 badge with
+// deep links to write / read reviews (drives local SEO + trust). Rating/count
+// are display-only, NOT JSON-LD aggregateRating (Google discourages
+// self-marked-up off-site reviews). Bump site.reviewCount as reviews grow.
 ---
 <section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
   <div style="max-width:1080px;margin:0 auto;">
-    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 10px;color:#2A2521;text-align:center;">ดูฝีมือจริงของเรา</h2>
-    <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 0 42px;">คลิปฝึกจริง เล่นไปฝึกไป จากช่องของเรา</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-bottom:44px;">
-      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot src="/uploads/PXL_20251012_035818088.jpg" alt="คลิป recall — มอมแมมฝึกเรียกแล้วมา" placeholder="คลิป recall (มอมแมม)" /></div>
-      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot alt="คลิป cooperative care — ดูแลน้องแบบให้ความร่วมมือ" placeholder="คลิป cooperative care" /></div>
-      <div style="aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px -20px rgba(42,37,33,.6);"><ImageSlot alt="คลิปเล่นไปฝึกไป" placeholder="คลิปเล่นไปฝึกไป" /></div>
+    <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(28px,5vw,50px);line-height:1.2;margin:0 0 10px;color:#2A2521;text-align:center;">เสียงจากลูกค้า</h2>
+    <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 0 42px;">รีวิวจริงจากลูกค้าที่ให้เราไปฝึกน้องถึงบ้าน</p>
+
+    <!-- รีวิวจริงใน Google Business Profile -->
+    <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:24px;padding:clamp(28px,5vw,44px) clamp(20px,4vw,40px);text-align:center;box-shadow:0 18px 40px -28px rgba(42,37,33,.5);">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.05em;color:#178C88;margin-bottom:12px;">รีวิวจริงจาก Google</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:6px;">
+        <span style="font-family:'Chonburi',serif;font-size:clamp(38px,7vw,52px);color:#2A2521;line-height:1;">{site.reviewRating}</span>
+        <span style="color:#F4C13C;font-size:clamp(24px,4vw,30px);letter-spacing:2px;" aria-hidden="true">★★★★★</span>
+      </div>
+      <p style="font-size:15px;color:#6b6157;margin:0 0 24px;">จาก {site.reviewCount} รีวิวใน Google · หมาสนุก ครูฝึกสุนัขถึงบ้าน</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href={site.gbpReviewUrl} target="_blank" rel="noopener" class="btn-gold" style="font-size:16px;padding:14px 26px;box-shadow:0 5px 0 var(--gold-deep);" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 3px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 5px 0 #DFA714'"><span aria-hidden="true">⭐</span> เขียนรีวิวให้เรา</a>
+        <a href={site.gbpUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#178C88;font-weight:600;font-size:16px;padding:13px 24px;border-radius:999px;text-decoration:none;border:2px solid rgba(23,140,136,.4);transition:border-color .15s;" onmouseover="this.style.borderColor='#178C88'" onmouseout="this.style.borderColor='rgba(23,140,136,.4)'">อ่านรีวิวใน Google →</a>
+      </div>
+      <p style="font-size:13.5px;color:#8a8074;margin:22px 0 0;line-height:1.7;">ถ้าเราช่วยให้น้องที่บ้านดีขึ้น ฝากรีวิวให้กำลังใจกันได้นะครับ มีความหมายกับเรามาก</p>
     </div>
-    <!-- พื้นที่รีวิวลูกค้า — เว้นไว้เติมภายหลัง (CLAUDE.md §5) -->
   </div>
 </section>

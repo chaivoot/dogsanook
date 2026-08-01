@@ -77,6 +77,14 @@ export const site = {
   phone: '081-949-6389', // display form
   phoneTel: '+66819496389', // tel: link (E.164)
 
+  // Google Business Profile deep links (from GBP "Get more reviews").
+  // Badge rating/count are shown visually only (NOT in JSON-LD aggregateRating —
+  // Google discourages self-serving markup of off-site reviews). Bump as reviews grow.
+  gbpReviewUrl: 'https://g.page/r/Cc_pXfnF9IDfEBM/review', // opens the write-a-review dialog
+  gbpUrl: 'https://g.page/r/Cc_pXfnF9IDfEBM', // profile (read reviews)
+  reviewRating: '5.0',
+  reviewCount: 2,
+
   // Hero recall clip — metadata for VideoObject schema (helps Google index
   // the video + become eligible for a video thumbnail in search results).
   heroVideo: {
