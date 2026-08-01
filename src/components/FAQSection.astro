@@ -1,10 +1,71 @@
 ---
-const faqs = [
-  { q: 'ใช้เวลานานแค่ไหนถึงเห็นผล?', a: 'ส่วนใหญ่เริ่มเห็นการเปลี่ยนแปลงตั้งแต่ครั้งแรก ๆ ถ้าซ้อมต่อเนื่องที่บ้าน คอร์ส 5 ครั้งช่วยให้ทักษะติดตัวเป็นระบบ' },
-  { q: 'น้องอายุเยอะ / ดื้อมาก ฝึกได้ไหม?', a: 'ได้ครับ วิธีเล่นไปฝึกไปเหมาะกับทุกวัย เพราะอิงความสนุกและการให้หมาได้เลือกเอง ไม่ใช่การบังคับ' },
-  { q: 'ต้องเตรียมอะไรก่อนครูมา?', a: 'แค่พื้นที่ในบ้านและขนมที่น้องชอบ ที่เหลือเราจัดการให้ — รายละเอียดจะคุยกันทาง LINE ก่อนนัด' },
-  { q: 'ให้บริการโซนไหนบ้าง?', a: 'กรุงเทพกรีฑา · รามคำแหง · พระราม 9 · ลาดกระบัง (กรุงเทพฯ) และบางพลี–สุวรรณภูมิ (สมุทรปราการ) รวมถึงพื้นที่ใกล้เคียง — โซนอื่นสอบถามทาง LINE ได้' },
+import { site } from '../config/site';
+
+// FAQ = pre-purchase questions + "how do I..." questions that link out to the
+// matching blog post (internal links + lets readers go deeper). Emits FAQPage
+// JSON-LD so the Q&A is eligible for FAQ rich results in Google.
+const faqs: { q: string; a: string; link?: { href: string; label: string } }[] = [
+  {
+    q: 'ใช้เวลานานแค่ไหนถึงเห็นผล?',
+    a: 'ส่วนใหญ่เริ่มเห็นการเปลี่ยนแปลงตั้งแต่ครั้งแรก ๆ ถ้าซ้อมต่อเนื่องที่บ้าน คอร์ส 5 ครั้งช่วยให้ทักษะติดตัวเป็นระบบ',
+  },
+  {
+    q: 'น้องอายุเยอะ / ดื้อมาก ฝึกได้ไหม?',
+    a: 'ได้ครับ วิธีเล่นไปฝึกไปเหมาะกับทุกวัย เพราะอิงความสนุกและการให้หมาได้เลือกเอง ไม่ใช่การบังคับ',
+  },
+  {
+    q: 'ต้องเตรียมอะไรก่อนครูมา?',
+    a: 'แค่พื้นที่ในบ้านและขนมที่น้องชอบ ที่เหลือเราจัดการให้ รายละเอียดจะคุยกันทาง LINE ก่อนนัด',
+  },
+  {
+    q: 'ให้บริการโซนไหนบ้าง?',
+    a: 'กรุงเทพกรีฑา รามคำแหง พระราม 9 ลาดกระบัง (กรุงเทพฯ) และบางพลี สุวรรณภูมิ (สมุทรปราการ) รวมถึงพื้นที่ใกล้เคียง โซนอื่นสอบถามทาง LINE ได้',
+  },
+  {
+    q: 'น้องหวงของ คาบแล้วไม่ยอมปล่อย ต้องฝึกยังไง?',
+    a: 'ไม่ต้องไล่แย่ง เพราะยิ่งแย่งยิ่งกลายเป็นเกมวิ่งหนี เราสอนให้น้องเห็นว่าการคืนของแล้วได้เล่นต่อ สนุกกว่าการคาบหนี',
+    link: { href: '/blog/teach-dog-to-drop-it', label: 'หมาหวงของ ต้องฝึกยังไง' },
+  },
+  {
+    q: 'ฝึกลูกหมาให้ฉี่เป็นที่ยังไง?',
+    a: 'หัวใจคือจัดสภาพแวดล้อมและจับจังหวะให้น้องทำถูกได้ง่าย ให้รางวัลทันทีที่ทำถูก และไม่ลงโทษเวลาพลาด ฝึกได้ทั้งฉี่นอกบ้านและบนแพด',
+    link: { href: '/blog/potty-training-puppy', label: 'ฝึกลูกหมาฉี่เป็นที่ ทั้งนอกบ้านและบนแพด' },
+  },
+  {
+    q: 'ตัดเล็บหรือไถขนแล้วน้องดิ้น ทำยังไงดี?',
+    a: 'น้องดิ้นเพราะกลัว ไม่ใช่ดื้อ เราค่อย ๆ สอนให้น้องรู้สึกปลอดภัยกับการถูกดูแลตัว จนยอมให้ทำโดยไม่ต้องจับล็อก',
+    link: { href: '/blog/cooperative-care-grooming', label: 'ตัดเล็บ ไถขน โดยไม่ต้องจับล็อก' },
+  },
+  {
+    q: 'สอนน้องให้เรียกแล้วมา (recall) ยังไง?',
+    a: 'เราทำให้การวิ่งกลับมาหาเรากลายเป็นเรื่องที่ดีที่สุดสำหรับน้องเสมอ น้องเลยเลือกวิ่งกลับมาเอง ไม่ใช่เพราะกลัว',
+    link: { href: '/blog/recall-3-steps', label: 'สอนหมาเรียกแล้วมา 3 ขั้น' },
+  },
+  {
+    q: 'รับเคสหมาก้าวร้าว กัดคนหรือกัดหมาไหม?',
+    a: 'ตอนนี้เราเน้นพื้นฐานและมารยาทของหมาทั่วไป ยังไม่รับเคสก้าวร้าว กัด หรือระแวงรุนแรง ถ้าไม่แน่ใจว่าเคสของน้องเข้าข่ายไหน ทักมาเล่าอาการก่อนได้ครับ',
+  },
+  {
+    q: 'ราคาเท่าไหร่?',
+    a: 'ครั้งแรก (ประเมิน+เริ่มฝึก) โปรชุดแรก 1,990 บาท และคอร์ส 5 ครั้ง ประมาณ 11,900 บาท',
+    link: { href: '#pricing', label: 'แพ็กเกจ และ ราคา' },
+  },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.link
+        ? `${f.a} อ่านเพิ่มเติม: <a href="${new URL(f.link.href, site.domain).href}">${f.link.label}</a>`
+        : f.a,
+    },
+  })),
+};
 ---
 <section data-reveal style="background:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
   <div style="max-width:760px;margin:0 auto;">
@@ -13,13 +74,15 @@ const faqs = [
       {faqs.map((f) => (
         <details style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:2px 22px;">
           <summary style="cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;color:#2A2521;padding:18px 0;display:flex;justify-content:space-between;gap:12px;">{f.q}<span style="color:#F4C13C;">+</span></summary>
-          <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0 0 18px;">{f.a}</p>
+          <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0 0 14px;">{f.a}</p>
+          {f.link && (
+            <p style="margin:0 0 18px;">
+              <a href={f.link.href} style="color:#8A6A18;font-weight:600;font-size:14.5px;text-decoration:none;">อ่านเพิ่มเติม: {f.link.label} →</a>
+            </p>
+          )}
         </details>
       ))}
-      <details style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:2px 22px;">
-        <summary style="cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;color:#2A2521;padding:18px 0;display:flex;justify-content:space-between;gap:12px;">ราคาเท่าไหร่?<span style="color:#F4C13C;">+</span></summary>
-        <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0 0 18px;">ครั้งแรก (ประเมิน+เริ่มฝึก) โปรชุดแรก 1,990 บาท · คอร์ส 5 ครั้ง ~11,900 บาท ดูรายละเอียดที่ <a href="#pricing">แพ็กเกจ &amp; ราคา</a></p>
-      </details>
     </div>
   </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </section>

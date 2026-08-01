@@ -38,6 +38,7 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
     <meta name="keywords" content={defaultSeo.keywords.join(', ')} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} — บทความฝึกสุนัข`} href="/rss.xml" />
     <!-- Favicon = main teal brand mark (มอมแมม circle), not the gold-only wordmark -->
     <link rel="icon" type="image/png" href="/uploads/mommam.png" />
     <link rel="apple-touch-icon" href="/uploads/mommam.png" />
