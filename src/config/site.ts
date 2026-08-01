@@ -116,7 +116,7 @@ export const site = {
   // Pricing (CLAUDE.md §5). Shown on-site only (never in Google Business desc — §9).
   pricing: {
     firstSession: { normal: 3000, promo: 1990 },
-    course5: { normal: 15000, promo: 11900 },
+    course4: { normal: 12000, promo: 9900 },
   },
 } as const;
 
