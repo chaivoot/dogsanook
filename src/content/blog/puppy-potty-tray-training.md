@@ -5,7 +5,7 @@ category: "จัดสภาพแวดล้อม"
 pubDate: 2026-08-01
 heroVideo: "/uploads/dogsanook-puppy-potty-tray-training.mp4"
 heroImage: "/uploads/dog-training-puppy-potty-tray.jpg"
-heroVideoDuration: "PT10S"
+heroVideoDuration: "PT8S"
 heroAlt: "ลูกสุนัขเดินออกจากเบาะนอนไปฉี่ในถาดรองเองในคอกที่แบ่งครึ่งระหว่างที่นอนกับถาดฉี่ จากการจัดสภาพแวดล้อม"
 draft: false
 ---
