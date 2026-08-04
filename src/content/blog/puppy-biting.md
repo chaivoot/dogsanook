@@ -5,7 +5,7 @@ category: "ลูกหมาชอบกัด"
 pubDate: 2026-08-03
 heroVideo: "/uploads/dogsanook-puppy-biting-chew-toy.mp4"
 heroImage: "/uploads/dog-training-puppy-biting-chew-toy.jpg"
-heroVideoDuration: "PT10S"
+heroVideoDuration: "PT5S"
 heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้ กำลังแทะของเล่นสำหรับลูกหมา แทนการแทะมือหรือเฟอร์นิเจอร์ จากการเปลี่ยนเป้าหมายการกัด"
 draft: false
 ---
