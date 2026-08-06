@@ -9,7 +9,7 @@ heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้
 draft: false
 ---
 
-<div class="yt-facade" data-id="xsTl0YtI4xI" data-title="มอมแมม ฝึกนั่งก่อนถึงจะได้เล่นบอลต่อ ควบคุมตัวเองในภาวะตื่นเต้นสูง" style="aspect-ratio:9/16;max-width:340px;margin:0 auto 8px;"></div>
+<div class="yt-facade" data-id="eZtWacPMOmo" data-title="มอมแมม ฝึกนั่งก่อนถึงจะได้เล่นบอลต่อ ควบคุมตัวเองในภาวะตื่นเต้นสูง" style="aspect-ratio:9/16;max-width:340px;margin:0 auto 8px;"></div>
 
 เจ้าของหลายคนเจอปัญหาเดียวกัน คือเวลาน้องกำลังตื่นเต้นสุด ๆ [เรียกยังไงน้องก็เหมือนไม่ได้ยิน](/blog/recall-3-steps) เราเรียกว่าอาการหมาหูดับ
 
