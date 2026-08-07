@@ -4,7 +4,7 @@ description: "กายภาพสุนัขไม่จำเป็นต้
 category: "กายภาพสุนัข"
 pubDate: 2026-08-06
 heroImage: "/uploads/dog-training-canine-physio-step.jpg"
-heroRatio: "1/1"
+heroRatio: "5/6"
 heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้ ยืนขาหน้าสองข้างบนแผ่น step ท่ากายภาพเสริมความแข็งแรงขาหลังและการทรงตัว"
 draft: false
 ---
