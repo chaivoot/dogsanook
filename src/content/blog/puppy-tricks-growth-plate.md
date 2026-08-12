@@ -5,7 +5,7 @@ category: "ฝึกทริกลูกหมา"
 pubDate: 2026-08-07
 heroImage: "/uploads/dog-training-puppy-tricks-growth-plate.jpg"
 heroRatio: "1/1"
-heroAlt: "ลูกสุนัขกำลังฝึกท่าเบา ๆ ที่ปลอดภัยกับข้อต่อ ระหว่างรอให้ growth plate ปิดก่อนสอนทริกที่ลงน้ำหนักหนัก"
+heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้ ยืนบนแผ่น step ฝึกการทรงตัวและลงน้ำหนักแบบ low impact ที่ปลอดภัยกับข้อต่อ"
 draft: false
 ---
 
