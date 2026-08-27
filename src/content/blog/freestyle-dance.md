@@ -3,6 +3,7 @@ title: "เต้นกับหมา (Dog Freestyle) มีท่าอะไ�
 description: "เต้นกับหมา หรือ Dog Freestyle Dance มีท่าอะไรบ้าง? เล่าจากประสบการณ์ฝึกมอมแมม ตั้งแต่ท่าพื้นฐานอย่าง spin, leg weave, bow ไปจนถึงท่ายาก และทำไมความไว้ใจจากการฝึกแบบ force-free ไม่ดุ ไม่บังคับ ถึงเป็นจุดเริ่มต้น พร้อมย้ำว่าความแข็งแรงของน้องต้องมาก่อนเสมอ ฝึกหมาเชิงบวก สไตล์เล่นไปฝึกไป"
 category: "เต้นกับหมา"
 pubDate: 2026-08-25
+heroImage: "/uploads/dog-training-freestyle-dance-leg-weave.jpg"
 heroRatio: "1/1"
 heroAlt: "มอมแมม สุนัขพันธุ์เชลตี้ กำลังเดินลอดขา leg weave ท่าพื้นฐานของ Dog Freestyle Dance ในบ้าน"
 draft: false
