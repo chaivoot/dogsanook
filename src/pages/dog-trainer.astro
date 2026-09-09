@@ -29,14 +29,15 @@ const person = {
   '@id': personId,
   name: `ครู${site.teacher}`,
   alternateName: site.teacherNameEn,
-  jobTitle: 'ครูฝึกสุนัข · game-based dog trainer',
+  jobTitle: 'ครูฝึกสุนัข · ฝึกหมาตามหลักวิทยาศาสตร์ ผ่านการเล่น',
   description:
-    'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — สอนผ่านการเล่นและให้หมาได้เลือกเอง',
+    'ครูฝึกสุนัขถึงบ้าน กรุงเทพฯ ฝึกหมาตามหลักวิทยาศาสตร์ด้านพฤติกรรมและการเรียนรู้ ผ่านการเล่น ไม่ดุ ไม่บังคับ',
   url: `${site.domain}/dog-trainer`,
   image: new URL(seo.ogImage, site.domain).href,
   worksFor: { '@type': 'Organization', name: site.name, url: site.domain },
   knowsAbout: [
     'การฝึกสุนัขเชิงบวก',
+    'การฝึกสุนัขตามหลักวิทยาศาสตร์',
     'game-based dog training',
     'พฤติกรรมสุนัข',
     'โภชนาการสุนัข',

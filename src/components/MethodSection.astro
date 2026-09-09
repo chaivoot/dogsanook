@@ -4,7 +4,7 @@
 // list reads as self-control, not a traditional command.
 const cards = [
   { icon: '🎯', title: 'ได้เลือกเอง', body: 'หมาตัดสินใจเอง เลยจำได้จริง ทำได้จริง ไม่ใช่แค่ตอนถูกสั่ง' },
-  { icon: '🎲', title: 'สนุกจนอยากทำซ้ำ', body: 'เสริมแรงบวก หมาอยากร่วมมือเพราะมันสนุก ไม่ใช่เพราะกลัว' },
+  { icon: '🎲', title: 'สนุกจนอยากทำซ้ำ', body: 'ใช้การเสริมแรงบวก (positive reinforcement) หมาอยากร่วมมือเพราะมันสนุก ไม่ใช่เพราะกลัว' },
   { icon: '💛', title: 'ไม่ดุ ไม่บังคับ', body: 'ไม่มีการดุ ตี กระตุก — สร้างความไว้ใจแทนความกลัว' },
 ];
 ---
@@ -12,7 +12,8 @@ const cards = [
   <div style="max-width:1040px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:48px;">
       <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(27px,5vw,48px);line-height:1.22;margin:0 0 16px;color:#FBF8F1;">ทำไมฝึกหมาแบบ “เล่นไปฝึกไป”<br />ถึงได้ผลกว่าการบังคับ</h2>
-      <p style="font-size:17px;color:#F4C13C;font-weight:600;margin:0;">สอนผ่านการเล่น + ให้หมาได้เลือกเอง ไม่ดุ ไม่บังคับ</p>
+      <p style="font-size:17px;color:#F4C13C;font-weight:600;margin:0 0 14px;">เพราะเราฝึกตามหลักที่ว่าหมาเรียนรู้จริง ๆ อย่างไร ไม่ใช่ความเชื่อเก่า ๆ</p>
+      <p style="max-width:58ch;margin:0 auto;font-size:15.5px;line-height:1.8;color:rgba(251,248,241,.82);">การฝึกของเราอิงหลักพฤติกรรมและการเรียนรู้ของสุนัขที่มีงานวิจัยรองรับ เราเลยรู้ว่าอะไรได้ผลจริงและอะไรทำร้ายใจน้อง แล้วเลือกวิธีที่ทั้งได้ผลและน้องมีความสุขไปด้วยกัน</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
       {cards.map((c) => (
