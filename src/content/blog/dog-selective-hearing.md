@@ -75,6 +75,8 @@ draft: false
 
 พอน้องฟังเราได้แม้ในตอนที่ตื่นเต้นที่สุด อาการหูดับก็จะค่อย ๆ หายไปเอง เพราะน้องได้เรียนรู้แล้วว่า ไม่ว่าจะตื่นเต้นแค่ไหน การฟังเราคือทางที่ดีที่สุดเสมอ
 
+ถ้าอยากให้เราไปช่วยฝึกน้องถึงบ้าน ลองดู[คอร์สฝึกสุนัขสไตล์เล่นไปฝึกไป](/course)ของเรา หรือทักมาเล่าเรื่องน้องกันก่อนได้ครับ
+
 ## อ้างอิง
 
 PetMD. How to Apply the Premack Principle to Dog Training. [petmd.com](https://www.petmd.com/dog/training/how-apply-premack-principle-dog-training)
