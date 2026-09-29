@@ -13,15 +13,15 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <BaseLayout
-  title="บทความฝึกสุนัข — เล่นไปฝึกไป | หมาสนุก"
-  description="ความรู้ฝึกสุนัขสไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — สอนหมาเรียกแล้วมา ฝึกลูกสุนัข มารยาทในบ้าน โดยครูฝึกสุนัขถึงบ้าน กรุงเทพฯ"
+  title="บทความฝึกสุนัข และสุขภาพน้องหมา — เล่นไปฝึกไป | หมาสนุก"
+  description="ความรู้ฝึกสุนัขและดูแลสุขภาพน้องหมา สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — สอนหมาเรียกแล้วมา ฝึกลูกสุนัข มารยาทในบ้าน พร้อมเรื่องสุขภาพและพฤติกรรมน้องหมา โดยครูฝึกสุนัขถึงบ้าน กรุงเทพฯ"
   path="/blog"
 >
   <Nav />
   <main style="max-width:1120px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(16px,4vw,48px);">
     <div style="margin-bottom:44px;">
-      <div style="font-weight:700;font-size:13px;letter-spacing:.08em;color:#DFA714;margin-bottom:8px;">ความรู้ฝึกหมา</div>
-      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.2;margin:0;color:#2A2521;">บทความฝึกสุนัข</h1>
+      <div style="font-weight:700;font-size:13px;letter-spacing:.08em;color:#DFA714;margin-bottom:8px;">ความรู้ฝึกหมา + ดูแลสุขภาพน้อง</div>
+      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.2;margin:0;color:#2A2521;">บทความฝึกสุนัข และสุขภาพน้องหมา</h1>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
       {posts.map((post) => (

@@ -33,10 +33,10 @@ export const GET: APIRoute = async () => {
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${esc(site.name)} — บทความฝึกสุนัข</title>
+    <title>${esc(site.name)} — บทความฝึกสุนัข และสุขภาพน้องหมา</title>
     <link>${site.domain}/blog</link>
     <atom:link href="${site.domain}/rss.xml" rel="self" type="application/rss+xml" />
-    <description>บทความฝึกสุนัขสไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ โดยครูฝึกสุนัขถึงบ้าน หมาสนุก</description>
+    <description>บทความฝึกสุนัขและดูแลสุขภาพน้องหมา สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ โดยครูฝึกสุนัขถึงบ้าน หมาสนุก</description>
     <language>th</language>
 ${items}
   </channel>
