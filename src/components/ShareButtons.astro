@@ -1,0 +1,96 @@
+---
+/*
+ * ShareButtons — lightweight social share bar for blog posts.
+ * Uses plain share LINKS (no FB/LINE SDK) to keep the page fast and
+ * privacy-friendly (matches the cookieless GA setup). Facebook + LINE
+ * (the two big channels in Thailand) + a copy-link button.
+ */
+import { site } from '../config/site';
+interface Props {
+  path: string; // e.g. "/blog/dog-flatulence"
+}
+const { path } = Astro.props;
+const url = new URL(path, site.domain).href;
+const enc = encodeURIComponent(url);
+const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc}`;
+const lineHref = `https://social-plugins.line.me/lineit/share?url=${enc}`;
+---
+<div class="share-bar">
+  <span class="share-label">แชร์บทความนี้</span>
+  <a class="share-btn share-fb" href={fbHref} target="_blank" rel="noopener" aria-label="แชร์บทความนี้ไปยัง Facebook">
+    <span aria-hidden="true">f</span> Facebook
+  </a>
+  <a class="share-btn share-line" href={lineHref} target="_blank" rel="noopener" aria-label="แชร์บทความนี้ไปยัง LINE">
+    LINE
+  </a>
+  <button class="share-btn share-copy" type="button" data-url={url} aria-label="คัดลอกลิงก์บทความ">
+    คัดลอกลิงก์
+  </button>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.share-copy').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-url');
+      const done = () => {
+        const prev = btn.dataset.label || btn.textContent;
+        btn.dataset.label = prev;
+        btn.textContent = 'คัดลอกแล้ว';
+        btn.classList.add('is-copied');
+        setTimeout(() => {
+          btn.textContent = prev;
+          btn.classList.remove('is-copied');
+        }, 1600);
+      };
+      try {
+        await navigator.clipboard.writeText(url);
+        done();
+      } catch (e) {
+        const t = document.createElement('input');
+        t.value = url;
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand('copy'); done(); } catch (_) {}
+        document.body.removeChild(t);
+      }
+    });
+  });
+</script>
+
+<style>
+  .share-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid #eadfce;
+  }
+  .share-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8a6a18;
+    margin-right: 2px;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  }
+  .share-btn:hover { transform: translateY(-1px); }
+  .share-fb { background: #1877f2; color: #fff; }
+  .share-line { background: #06c755; color: #fff; }
+  .share-copy { background: #f2e9d8; color: #2a2521; }
+  .share-copy.is-copied { background: #cbe7c2; }
+</style>
