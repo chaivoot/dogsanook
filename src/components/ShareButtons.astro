@@ -8,14 +8,16 @@
 import { site } from '../config/site';
 interface Props {
   path: string; // e.g. "/blog/dog-flatulence"
+  /** "bottom" (default) = divider bar after the article; "top" = compact bar under the title. */
+  variant?: 'top' | 'bottom';
 }
-const { path } = Astro.props;
+const { path, variant = 'bottom' } = Astro.props;
 const url = new URL(path, site.domain).href;
 const enc = encodeURIComponent(url);
 const fbHref = `https://www.facebook.com/sharer/sharer.php?u=${enc}`;
 const lineHref = `https://social-plugins.line.me/lineit/share?url=${enc}`;
 ---
-<div class="share-bar">
+<div class:list={['share-bar', variant === 'top' && 'share-bar--top']}>
   <span class="share-label">แชร์บทความนี้</span>
   <a class="share-btn share-fb" href={fbHref} target="_blank" rel="noopener" aria-label="แชร์บทความนี้ไปยัง Facebook">
     <span aria-hidden="true">f</span> Facebook
@@ -28,7 +30,7 @@ const lineHref = `https://social-plugins.line.me/lineit/share?url=${enc}`;
   </button>
 </div>
 
-<script is:inline>
+<script>
   document.querySelectorAll('.share-copy').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const url = btn.getAttribute('data-url');
@@ -66,6 +68,20 @@ const lineHref = `https://social-plugins.line.me/lineit/share?url=${enc}`;
     margin: 40px 0 0;
     padding-top: 24px;
     border-top: 1px solid #eadfce;
+  }
+  /* Top bar: sits under the title/byline, no divider line, tighter spacing. */
+  .share-bar--top {
+    margin: 0 0 26px;
+    padding-top: 0;
+    border-top: 0;
+    gap: 8px;
+  }
+  .share-bar--top .share-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+  .share-bar--top .share-label {
+    font-size: 13px;
   }
   .share-label {
     font-size: 14px;
