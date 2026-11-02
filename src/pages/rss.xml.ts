@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { site } from '../config/site';
+import { getLivePosts } from '../lib/posts';
 
 // RSS 2.0 feed for the blog. Hand-rolled (no extra dep) to match sitemap.xml.ts.
 // Helps content distribution and lets readers/aggregators pick up new posts.
@@ -12,9 +12,7 @@ const esc = (s: string) =>
     .replace(/"/g, '&quot;');
 
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
+  const posts = await getLivePosts();
 
   const items = posts
     .map((p) => {
