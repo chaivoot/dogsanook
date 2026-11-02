@@ -12,9 +12,10 @@ export type BlogPost = CollectionEntry<'blog'>;
 // so they can be reviewed before they go live. Vercel sets VERCEL_ENV to
 // 'production' only on the production deployment.
 //
-// A daily scheduled rebuild (see .github/workflows/scheduled-publish.yml) makes
-// the production site re-build once a day, so a post whose pubDate has passed
-// gets published automatically without anyone pushing.
+// There is no scheduled rebuild wired up, so a scheduled post goes live on the
+// next production deploy that happens on/after its pubDate (i.e. alongside the
+// next post we publish). To make dated posts auto-publish hands-free, add a
+// daily trigger (a Vercel deploy hook pinged by cron, or a daily commit to main).
 const isProd = process.env.VERCEL_ENV === 'production';
 
 /** True when the post should be visible on the current build. */
