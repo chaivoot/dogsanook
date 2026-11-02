@@ -1,0 +1,40 @@
+name: Scheduled publish
+
+# Rebuilds the production site once a day so that any blog post whose `pubDate`
+# has arrived gets published automatically (scheduled posts). See src/lib/posts.ts.
+#
+# One-time setup by the site owner:
+#   1. Vercel dashboard -> Project (dogsanook) -> Settings -> Git -> Deploy Hooks
+#      Create a hook (e.g. name "daily", branch "main"), copy its URL.
+#   2. GitHub repo -> Settings -> Secrets and variables -> Actions -> New secret
+#      Name: VERCEL_DEPLOY_HOOK_URL   Value: the hook URL from step 1.
+# Without that secret the job just no-ops (it won't error the Actions tab).
+
+on:
+  schedule:
+    # 01:00 UTC daily = 08:00 Asia/Bangkok. A post dated e.g. 2026-11-10 goes
+    # live on the morning (Thailand time) of 2026-11-10. GitHub may delay the
+    # run by a few minutes under load; that's fine for a blog.
+    - cron: '0 1 * * *'
+  workflow_dispatch: {} # allow a manual "publish now" run from the Actions tab
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production rebuild
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "VERCEL_DEPLOY_HOOK_URL secret not set; nothing to do."
+            echo "Add it in repo Settings > Secrets to enable scheduled publishing."
+            exit 0
+          fi
+          echo "Triggering Vercel deploy hook..."
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$HOOK")
+          echo "Deploy hook responded with HTTP $code"
+          case "$code" in
+            2*) echo "Rebuild triggered." ;;
+            *) echo "Deploy hook failed (HTTP $code)." ; exit 1 ;;
+          esac

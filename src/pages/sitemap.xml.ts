@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { site } from '../config/site';
+import { getLivePosts } from '../lib/posts';
 
 export const GET: APIRoute = async () => {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getLivePosts();
   const urls = [
     { loc: `${site.domain}/`, priority: '1.0' },
     { loc: `${site.domain}/course`, priority: '0.8' },
