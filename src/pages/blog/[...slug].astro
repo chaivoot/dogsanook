@@ -17,10 +17,12 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const fmt = (d: Date) =>
   d.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
-// Hero aspect: default landscape 16/9. A non-landscape ratio (e.g. a square
-// photo) is capped + centred so it reads as a framed shot, not a giant banner.
+// Hero width by aspect ratio: 16/9 spans the full column; 4/3 (our editorial
+// illustration format) shows at a framed 640px; anything else (square/portrait)
+// is capped smaller still, so it reads as a framed shot, not a giant banner.
 const heroRatio = post.data.heroRatio ?? '16/9';
-const heroWide = heroRatio === '16/9';
+const heroMaxWidth =
+  heroRatio === '16/9' ? '100%' : heroRatio === '4/3' ? '640px' : '460px';
 
 // BlogPosting structured data — helps Google treat each post as an article
 // (eligible for date/image in results). publisher/logo match the LocalBusiness.
@@ -120,7 +122,7 @@ const videoSchema = post.data.heroVideo
         style="display:block;width:100%;max-width:460px;height:auto;margin:0 auto 30px;border-radius:20px;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);background:#20302F;"
       ></video>
     ) : (post.data.heroImage && !post.data.hideHero) && (
-      <div style={`aspect-ratio:${heroRatio};max-width:${heroWide ? '100%' : '460px'};margin:0 auto 30px;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);`}>
+      <div style={`aspect-ratio:${heroRatio};max-width:${heroMaxWidth};margin:0 auto 30px;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(42,37,33,.55);`}>
         <ImageSlot src={post.data.heroImage} alt={post.data.heroAlt ?? post.data.title} loading="eager" />
       </div>
     )}
