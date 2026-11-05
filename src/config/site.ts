@@ -113,12 +113,10 @@ export const site = {
     facebook: 'https://www.facebook.com/dogsanook',
   },
 
-  // Pricing (CLAUDE.md §5). Shown on-site only (never in Google Business desc — §9).
-  // Strategy: lead with the first-session trial (visible results from session 1);
-  // the full course is quoted per-case via LINE, so no fixed course price here.
-  pricing: {
-    firstSession: { normal: 3000, promo: 1990 },
-  },
+  // Pricing (CLAUDE.md §5): consult-first. No numbers shown on-site for now —
+  // the first session and the course are both quoted per-case via LINE. A
+  // premium relaunch (session 5,000 / 4-session course 17,500) is planned for
+  // next year, tied to the CCPDT certification; publish prices then, not before.
 } as const;
 
 // SEO strings — based on CLAUDE.md §6, tuned to also carry the higher-volume

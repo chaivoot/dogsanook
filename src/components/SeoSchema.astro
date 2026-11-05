@@ -54,8 +54,9 @@ const business = {
       serviceType: 'ครูฝึกสุนัขถึงบ้าน',
       areaServed: site.zones.map((z) => `${z} ${site.zoneProvince[z] ?? site.city}`),
     },
-    priceCurrency: 'THB',
-    price: String(site.pricing.firstSession.promo),
+    // Price is quoted per-case via LINE (consult-first), so no fixed price is
+    // asserted here. availability flags that enquiries are open.
+    availability: 'https://schema.org/InStock',
   },
 };
 
