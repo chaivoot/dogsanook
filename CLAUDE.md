@@ -56,7 +56,7 @@ Palette อิงโลโก้จริง (teal + gold):
 --paper:     #FBF8F1   /* พื้นหลังหลัก (ขาวนวลอุ่น) */
 ```
 
-- **Type:** Display = `Chonburi` (echo โลโก้, ใช้อย่างมีวินัย) / Body = `Sarabun` (Google Fonts, รองรับไทย+ละติน)
+- **Type:** Display = `Chonburi` (echo โลโก้, ใช้อย่างมีวินัย) / Body = `Anuphan` (Google Fonts, sans ไร้หัวสไตล์ Sukhumvit โดย Cadson Demak, รองรับไทย+ละติน)
 - **Signature:** โมเมนต์ recall ใน hero (คลิปมอมแมมวิ่งเข้าหา) + การ์ดบริการทำเป็น "game cards"
 - **Motion เบา:** คลิป hero autoplay+muted+loop, scroll-reveal, hover ยกการ์ด, **respect `prefers-reduced-motion`**
 - **⚠️ ประเด็นค้าง:** ดราฟต์ล่าสุดของ Claude Design เป็นโทน **น้ำตาล-ทอง** สวยแต่ **teal (สีโลโก้) หายไปเกือบหมด** — ต้องตัดสินใจ: ดึง teal กลับมาให้ตรงแบรนด์ หรือคงโทนอุ่น (รอเจ้าของเคาะ)
