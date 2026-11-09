@@ -40,7 +40,7 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
   <header id="top" style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px) clamp(52px,7vw,84px);">
     <div style="max-width:920px;margin:0 auto;text-align:center;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px;margin-bottom:22px;">คอร์สหลักหมาสนุก</div>
-      <h1 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(30px,5.5vw,54px);line-height:1.22;margin:0 0 20px;color:#FBF8F1;text-wrap:balance;">ฝึกสุนัข 10 เกม<span style="color:#F4C13C;">เล่นไปฝึกไป</span></h1>
+      <h1 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:clamp(30px,5.5vw,54px);line-height:1.22;margin:0 0 20px;color:#FBF8F1;text-wrap:balance;">ฝึกสุนัข 10 เกม<span style="color:#F4C13C;">เล่นไปฝึกไป</span></h1>
       <p style="font-size:clamp(16px,2vw,19px);line-height:1.8;color:rgba(251,248,241,.9);margin:0 auto 8px;max-width:52ch;">คอร์สหลักคือการฝึก 10 เกมที่ออกแบบให้ต่อเนื่องกันเป็นระบบ — เราไม่ได้สอนให้น้อง “กลัว” หรือคอย “สั่ง” แต่จัดสถานการณ์ให้น้องเลือกทำสิ่งที่ถูกด้วยตัวเอง จนกลายเป็นนิสัยติดตัว</p>
     </div>
   </header>
@@ -48,7 +48,7 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
   <!-- 5 OUTCOMES -->
   <section data-reveal style="background:#FBF8F1;padding:clamp(52px,7vw,96px) clamp(16px,4vw,48px);">
     <div style="max-width:1080px;margin:0 auto;">
-      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">ฝึกสุนัขครบ 10 เกม แล้วน้องจะได้อะไร</h2>
+      <h2 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">ฝึกสุนัขครบ 10 เกม แล้วน้องจะได้อะไร</h2>
       <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 auto 44px;max-width:44ch;">เมื่อจบครบทั้ง 10 เกม น้องจะได้ 5 สิ่งนี้ติดตัว</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
         {outcomes.map((o) => (
@@ -60,7 +60,7 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
         ))}
       </div>
       <div style="margin-top:38px;text-align:center;">
-        <div style="display:inline-block;background:#2A2521;color:#F4C13C;font-family:'Chonburi',serif;font-size:clamp(18px,2.6vw,24px);padding:16px 30px;border-radius:18px;">หมาที่ “เลือกเป็น” ไม่ใช่แค่ “เชื่อฟัง”</div>
+        <div style="display:inline-block;background:#2A2521;color:#F4C13C;font-family:'Anuphan',sans-serif;font-weight:700;font-size:clamp(18px,2.6vw,24px);padding:16px 30px;border-radius:18px;">หมาที่ “เลือกเป็น” ไม่ใช่แค่ “เชื่อฟัง”</div>
       </div>
     </div>
   </section>
@@ -68,23 +68,23 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
   <!-- 10 GAMES -->
   <section id="games" data-reveal style="background:#F2E9D8;padding:clamp(52px,7vw,96px) clamp(16px,4vw,48px);">
     <div style="max-width:1120px;margin:0 auto;">
-      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">10 เกมในคอร์ส</h2>
+      <h2 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:clamp(26px,4.5vw,44px);line-height:1.2;margin:0 0 12px;color:#2A2521;text-align:center;">10 เกมในคอร์ส</h2>
       <p style="text-align:center;font-size:16px;color:#6b6157;margin:0 auto 44px;max-width:46ch;">เรียงต่อเนื่องกันเป็นระบบ ตั้งแต่เกม 1 ถึง 10</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
         {games.map((g) => (
           <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:20px;padding:26px 26px;display:flex;gap:18px;box-shadow:0 10px 24px -20px rgba(42,37,33,.6);">
-            <div style="flex:0 0 auto;font-family:'Chonburi',serif;font-size:34px;color:#F4C13C;line-height:1;">{g.n}</div>
+            <div style="flex:0 0 auto;font-family:'Anuphan',sans-serif;font-weight:700;font-size:34px;color:#F4C13C;line-height:1;">{g.n}</div>
             <div>
-              <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:21px;color:#2A2521;margin:0 0 8px;">{g.name}</h3>
+              <h3 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:21px;color:#2A2521;margin:0 0 8px;">{g.name}</h3>
               <p style="font-size:14.5px;color:#6b6157;line-height:1.7;margin:0;">{g.body}</p>
             </div>
           </div>
         ))}
         <div style="background:#2A2521;border:1px solid #2A2521;border-radius:20px;padding:26px 26px;display:flex;gap:18px;box-shadow:0 14px 30px -18px rgba(42,37,33,.8);position:relative;">
           <div style="position:absolute;top:16px;right:16px;background:#F4C13C;color:#20302F;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;">บทปิด</div>
-          <div style="flex:0 0 auto;font-family:'Chonburi',serif;font-size:34px;color:#F4C13C;line-height:1;">{finale.n}</div>
+          <div style="flex:0 0 auto;font-family:'Anuphan',sans-serif;font-weight:700;font-size:34px;color:#F4C13C;line-height:1;">{finale.n}</div>
           <div>
-            <h3 style="font-family:'Chonburi',serif;font-weight:400;font-size:21px;color:#F4C13C;margin:0 0 8px;">{finale.name}</h3>
+            <h3 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:21px;color:#F4C13C;margin:0 0 8px;">{finale.name}</h3>
             <p style="font-size:14.5px;color:rgba(251,248,241,.88);line-height:1.7;margin:0;">{finale.body}</p>
           </div>
         </div>
@@ -97,7 +97,7 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
   <section id="cta" data-reveal style="background:linear-gradient(180deg,#2A2521 0%,#201C19 100%);color:#FBF8F1;padding:clamp(60px,8vw,110px) clamp(16px,4vw,48px);text-align:center;">
     <div style="max-width:720px;margin:0 auto;">
       <img src="/uploads/logo-gold-mark.png" alt="โลโก้ หมาสนุก" width="120" height="120" style="width:120px;height:120px;margin:0 auto 20px;display:block;" />
-      <h2 style="font-family:'Chonburi',serif;font-weight:400;font-size:clamp(26px,4.5vw,46px);line-height:1.25;margin:0 0 16px;color:#FBF8F1;text-wrap:balance;">พร้อมเริ่ม<span style="color:#F4C13C;">10 เกม</span>กับน้องหรือยัง?</h2>
+      <h2 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:clamp(26px,4.5vw,46px);line-height:1.25;margin:0 0 16px;color:#FBF8F1;text-wrap:balance;">พร้อมเริ่ม<span style="color:#F4C13C;">10 เกม</span>กับน้องหรือยัง?</h2>
       <p style="font-size:16px;line-height:1.75;color:rgba(251,248,241,.85);margin:0 auto 28px;max-width:44ch;">วิธีฝึกจริง ครูดูแลให้ทุกสเต็ปในคอร์สฝึกถึงบ้าน — ทักมาเล่าเรื่องน้องได้เลย ปรึกษาฟรี</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
         <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(2px)';this.style.boxShadow='0 4px 0 #DFA714'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 0 #DFA714'"><span style="font-size:20px;">💬</span> แอด LINE จองคอร์ส</a>
