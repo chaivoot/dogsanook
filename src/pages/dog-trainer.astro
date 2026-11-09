@@ -96,7 +96,7 @@ const person = {
         {site.credentials.map((c) => (
           <div style="background:#fff;border:1px solid rgba(23,140,136,.16);border-radius:18px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;box-shadow:0 10px 24px -22px rgba(14,99,96,.7);">
             <div style="flex:1 1 340px;min-width:260px;">
-              <h3 style="font-family:'Sarabun',sans-serif;font-weight:700;font-size:17.5px;color:#20302F;margin:0 0 5px;line-height:1.4;">{c.name}</h3>
+              <h3 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:17.5px;color:#20302F;margin:0 0 5px;line-height:1.4;">{c.name}</h3>
               <p style="font-size:14.5px;color:#3f6d6a;margin:0 0 3px;">{c.issuer}</p>
               <p style="font-size:13.5px;color:#7c8a89;margin:0;">{c.note} · {c.year}</p>
             </div>
@@ -130,7 +130,7 @@ const person = {
           {latest.map((p) => (
             <a href={`/blog/${p.id}`} style="display:block;background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:18px;padding:24px 24px;text-decoration:none;box-shadow:0 10px 24px -22px rgba(42,37,33,.6);">
               <div style="font-size:13px;color:#178C88;font-weight:600;margin-bottom:8px;">{p.data.category}</div>
-              <h3 style="font-family:'Sarabun',sans-serif;font-weight:700;font-size:17px;color:#20302F;margin:0 0 8px;line-height:1.45;">{p.data.title}</h3>
+              <h3 style="font-family:'Anuphan',sans-serif;font-weight:700;font-size:17px;color:#20302F;margin:0 0 8px;line-height:1.45;">{p.data.title}</h3>
               <p style="font-size:13px;color:#8a8074;margin:0;">{fmt(p.data.pubDate)}</p>
             </a>
           ))}
