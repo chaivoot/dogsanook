@@ -56,7 +56,7 @@ Palette อิงโลโก้จริง (teal + gold):
 --paper:     #FBF8F1   /* พื้นหลังหลัก (ขาวนวลอุ่น) */
 ```
 
-- **Type:** `Anuphan` ทั้งเว็บ (Google Fonts, sans ไร้หัวสไตล์ Sukhumvit โดย Cadson Demak, รองรับไทย+ละติน) — หัวข้อใช้น้ำหนัก 700, เนื้อหาใช้ 400 (เลิกใช้ Chonburi แล้ว เพื่อโทนเดียวกันทั้งเว็บ)
+- **Type:** หัวข้อ = `Prompt` (เรขาคณิตโมเดิร์น โดย Cadson Demak, น้ำหนัก 700) / เนื้อหา = `Anuphan` (sans ไร้หัวสไตล์ Sukhumvit โดย Cadson Demak, น้ำหนัก 400) — ทั้งคู่จาก Google Fonts รองรับไทย+ละติน (เลิกใช้ Chonburi แล้ว)
 - **Signature:** โมเมนต์ recall ใน hero (คลิปมอมแมมวิ่งเข้าหา) + การ์ดบริการทำเป็น "game cards"
 - **Motion เบา:** คลิป hero autoplay+muted+loop, scroll-reveal, hover ยกการ์ด, **respect `prefers-reduced-motion`**
 - **⚠️ ประเด็นค้าง:** ดราฟต์ล่าสุดของ Claude Design เป็นโทน **น้ำตาล-ทอง** สวยแต่ **teal (สีโลโก้) หายไปเกือบหมด** — ต้องตัดสินใจ: ดึง teal กลับมาให้ตรงแบรนด์ หรือคงโทนอุ่น (รอเจ้าของเคาะ)
