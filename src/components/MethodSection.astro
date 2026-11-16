@@ -3,9 +3,9 @@
 // CLAUDE.md §5/§9 — wording taken from the brief so "คอย" in the services
 // list reads as self-control, not a traditional command.
 const cards = [
-  { icon: '🎯', title: 'ได้เลือกเอง', body: 'หมาตัดสินใจเอง เลยจำได้จริง ทำได้จริง ไม่ใช่แค่ตอนถูกสั่ง' },
-  { icon: '🎲', title: 'สนุกจนอยากทำซ้ำ', body: 'ใช้การเสริมแรงบวก (positive reinforcement) หมาอยากร่วมมือเพราะมันสนุก ไม่ใช่เพราะกลัว' },
-  { icon: '💛', title: 'ไม่ดุ ไม่บังคับ', body: 'ไม่มีการดุ ตี กระตุก — สร้างความไว้ใจแทนความกลัว' },
+  { title: 'ได้เลือกเอง', body: 'หมาตัดสินใจเอง เลยจำได้จริง ทำได้จริง ไม่ใช่แค่ตอนถูกสั่ง' },
+  { title: 'สนุกจนอยากทำซ้ำ', body: 'ใช้การเสริมแรงบวก (positive reinforcement) หมาอยากร่วมมือเพราะมันสนุก ไม่ใช่เพราะกลัว' },
+  { title: 'ไม่ดุ ไม่บังคับ', body: 'ไม่มีการดุ ตี กระตุก — สร้างความไว้ใจแทนความกลัว' },
 ];
 ---
 <section data-reveal style="background:#2A2521;color:#FBF8F1;padding:clamp(56px,8vw,110px) clamp(16px,4vw,48px);">
@@ -18,7 +18,6 @@ const cards = [
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
       {cards.map((c) => (
         <div style="background:rgba(251,248,241,.06);border:1px solid rgba(244,193,60,.28);border-radius:20px;padding:28px 26px;">
-          <div style="width:46px;height:46px;border-radius:14px;background:#F4C13C;color:#20302F;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">{c.icon}</div>
           <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:22px;margin:0 0 10px;color:#F4C13C;">{c.title}</h3>
           <p style="font-size:15.5px;line-height:1.75;color:rgba(251,248,241,.88);margin:0;">{c.body}</p>
         </div>
