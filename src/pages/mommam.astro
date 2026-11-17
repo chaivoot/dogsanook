@@ -30,9 +30,9 @@ const logs = [
   { src: '/uploads/PXL_20251214_144515964.jpg', title: 'ครั้งที่ 3 · Safe Spot', date: '10 พ.ย. 2568' },
 ];
 const values = [
-  { icon: '🔍', title: 'โปร่งใส เห็นทุกสเต็ป', body: 'รู้เสมอว่าน้องเรียนถึงไหน ทำอะไรได้แล้ว' },
-  { icon: '📈', title: 'เห็นพัฒนาการชัด', body: 'ภาพและสถานะย้อนหลังทุกครั้งที่ฝึก' },
-  { icon: '🤝', title: 'ครูกับเจ้าของร่วมมือกัน', body: 'เจ้าของบันทึกการบ้าน ฝึกไปด้วยกัน' },
+  { title: 'โปร่งใส เห็นทุกสเต็ป', body: 'รู้เสมอว่าน้องเรียนถึงไหน ทำอะไรได้แล้ว' },
+  { title: 'เห็นพัฒนาการชัด', body: 'ภาพและสถานะย้อนหลังทุกครั้งที่ฝึก' },
+  { title: 'ครูกับเจ้าของร่วมมือกัน', body: 'เจ้าของบันทึกการบ้าน ฝึกไปด้วยกัน' },
 ];
 ---
 <BaseLayout
@@ -51,7 +51,7 @@ const values = [
         </div>
       </div>
       <div style="flex:1 1 340px;min-width:280px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:13px;padding:6px 13px;border-radius:999px;margin-bottom:16px;">📋 ระบบติดตามการเรียนรู้</div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,193,60,.16);border:1px solid rgba(244,193,60,.4);color:#F4C13C;font-weight:600;font-size:13px;padding:6px 13px;border-radius:999px;margin-bottom:16px;">ระบบติดตามการเรียนรู้</div>
         <h1 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 8px;color:#FBF8F1;">มอมแมม</h1>
         <p style="font-size:16px;color:rgba(251,248,241,.75);margin:0 0 18px;">Shetland Sheepdog (เชลตี้) · คู่หูประจำตัวของครูหมาสนุก</p>
         <p style="font-size:15.5px;line-height:1.75;color:rgba(251,248,241,.9);margin:0 0 26px;max-width:44ch;">นี่คือตัวอย่างจริงของระบบติดตามที่ลูกค้าหมาสนุกทุกคนจะได้ — เห็นชัดว่าน้องเรียนถึงไหน ทำอะไรได้แล้ว และการบ้านที่เจ้าของฝึกเอง</p>
@@ -103,7 +103,7 @@ const values = [
       {locked.map((g) => (
         <div style="background:#F4EEE2;border:1px dashed #cabda6;border-radius:18px;padding:22px 22px;opacity:.75;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Prompt',sans-serif;font-weight:700;font-size:26px;color:#c2b7a3;line-height:1;">{g.n}</span><h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:19px;color:#9a8f80;margin:0;">{g.name}</h3></div>
-          <div style="display:flex;align-items:center;gap:8px;color:#a99e8d;font-size:14px;">🔒 ยังไม่เริ่ม · รอเรียน</div>
+          <div style="display:flex;align-items:center;gap:8px;color:#a99e8d;font-size:14px;">ยังไม่เริ่ม · รอเรียน</div>
         </div>
       ))}
     </div>
@@ -131,7 +131,6 @@ const values = [
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:44px;">
         {values.map((v) => (
           <div style="background:rgba(251,248,241,.06);border:1px solid rgba(244,193,60,.24);border-radius:16px;padding:22px;">
-            <div style="font-size:26px;margin-bottom:10px;">{v.icon}</div>
             <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:16px;color:#F4C13C;margin:0 0 6px;">{v.title}</h3>
             <p style="font-size:14px;color:rgba(251,248,241,.82);line-height:1.65;margin:0;">{v.body}</p>
           </div>
