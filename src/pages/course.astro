@@ -9,11 +9,11 @@ import { site } from '../config/site';
 // program names; Hand Target is a universal technique. All IP-safe.
 
 const outcomes = [
-  { icon: '🛡️', title: 'ปลอดภัยในทุกสถานการณ์', body: 'ยอมให้จับตัวตอนฉุกเฉิน ไม่คว้าของอันตราย เรียกกลับได้เสมอ' },
-  { icon: '🧘', title: 'ควบคุมตัวเองเป็น', body: 'สงบลงได้ รอคำอนุญาต แม้ตื่นเต้นหรือมีสิ่งล่อใจตรงหน้า' },
-  { icon: '💛', title: 'ผูกพันกับเจ้าของลึกซึ้ง', body: 'อยากอยู่ใกล้ อยากวิ่งกลับมาหา เพราะเห็นว่าอยู่กับเรา = ดีที่สุด' },
-  { icon: '🦴', title: 'สุขภาพดี อยู่กับเรานาน ๆ', body: 'ร่างกายแข็งแรง ทรงตัวดี ผ่านการเล่นที่เป็นกายบริหารในตัว' },
-  { icon: '😊', title: 'มีความสุขและมั่นใจ', body: 'เพราะเรียนรู้ผ่านการเล่น ไม่ใช่ผ่านความกลัว' },
+  { title: 'ปลอดภัยในทุกสถานการณ์', body: 'ยอมให้จับตัวตอนฉุกเฉิน ไม่คว้าของอันตราย เรียกกลับได้เสมอ' },
+  { title: 'ควบคุมตัวเองเป็น', body: 'สงบลงได้ รอคำอนุญาต แม้ตื่นเต้นหรือมีสิ่งล่อใจตรงหน้า' },
+  { title: 'ผูกพันกับเจ้าของลึกซึ้ง', body: 'อยากอยู่ใกล้ อยากวิ่งกลับมาหา เพราะเห็นว่าอยู่กับเรา = ดีที่สุด' },
+  { title: 'สุขภาพดี อยู่กับเรานาน ๆ', body: 'ร่างกายแข็งแรง ทรงตัวดี ผ่านการเล่นที่เป็นกายบริหารในตัว' },
+  { title: 'มีความสุขและมั่นใจ', body: 'เพราะเรียนรู้ผ่านการเล่น ไม่ใช่ผ่านความกลัว' },
 ];
 
 const games = [
@@ -53,7 +53,6 @@ const finale = { n: '10', name: 'หมาสนุก', body: 'น้องเ�
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
         {outcomes.map((o) => (
           <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:18px;padding:24px 22px;">
-            <div style="font-size:30px;margin-bottom:12px;">{o.icon}</div>
             <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:17px;color:#2A2521;margin:0 0 6px;">{o.title}</h3>
             <p style="font-size:14px;color:#7c7266;line-height:1.65;margin:0;">{o.body}</p>
           </div>
