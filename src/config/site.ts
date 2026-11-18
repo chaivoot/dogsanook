@@ -75,6 +75,7 @@ export const site = {
   zonePages: {
     'รามคำแหง': '/dog-training-ramkhamhaeng',
     'ลาดกระบัง': '/dog-training-latkrabang',
+    'พระราม 9': '/dog-training-rama9',
   } as Record<string, string>,
 
   // LINE Official Account = @dogsanook. Add-friend deep link.
