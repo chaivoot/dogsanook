@@ -69,6 +69,13 @@ export const site = {
     'สุวรรณภูมิ': 'สมุทรปราการ',
   } as Record<string, string>,
 
+  // Zones that have a dedicated landing page → path. Zones not listed here
+  // render as plain text (no link) in the footer / service-area section until
+  // their page exists. Add a slug when a new zone page ships.
+  zonePages: {
+    'รามคำแหง': '/dog-training-ramkhamhaeng',
+  } as Record<string, string>,
+
   // LINE Official Account = @dogsanook. Add-friend deep link.
   lineOaId: '@dogsanook',
   lineUrl: 'https://line.me/R/ti/p/@dogsanook',

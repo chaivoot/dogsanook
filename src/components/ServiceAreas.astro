@@ -1,0 +1,33 @@
+---
+import { site } from '../config/site';
+// "พื้นที่บริการ" — links to zone landing pages (internal links for SEO) and
+// shows the full coverage. Zones with a page in site.zonePages render as a
+// link; the rest as plain chips. Scales as more zone pages ship.
+const zones = site.zones.map((z) => ({
+  name: z,
+  province: site.zoneProvince[z] ?? site.city,
+  href: site.zonePages[z] ?? null,
+}));
+---
+<section id="service-areas" data-reveal style="background:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px);">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(24px,4.2vw,40px);line-height:1.25;margin:0 0 12px;color:#2A2521;">พื้นที่บริการ · ฝึกสุนัขถึงบ้าน กรุงเทพฯ–สมุทรปราการ</h2>
+    <p style="font-size:16px;color:#5a5249;line-height:1.75;margin:0 auto 32px;max-width:52ch;">ครูเดินทางไปสอนถึงบ้านในโซนเหล่านี้ กดเข้าดูรายละเอียดของแต่ละโซนได้</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      {zones.map((z) => (
+        z.href ? (
+          <a href={z.href} style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:#0E6360;color:#FBF8F1;border-radius:14px;padding:14px 22px;text-decoration:none;min-width:140px;box-shadow:0 8px 20px -14px rgba(14,99,96,.8);">
+            <span style="font-family:'Prompt',sans-serif;font-weight:700;font-size:17px;">{z.name}</span>
+            <span style="font-size:12px;color:#F4C13C;font-weight:600;">ดูบริการในโซนนี้ →</span>
+          </a>
+        ) : (
+          <div style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:#fff;border:1px solid rgba(140,120,80,.18);border-radius:14px;padding:14px 22px;min-width:140px;">
+            <span style="font-family:'Prompt',sans-serif;font-weight:700;font-size:17px;color:#2A2521;">{z.name}</span>
+            <span style="font-size:12px;color:#9a8f80;">{z.province}</span>
+          </div>
+        )
+      ))}
+    </div>
+    <p style="font-size:14.5px;color:#7c7266;line-height:1.7;margin:24px 0 0;">และพื้นที่ใกล้เคียง: {site.zonesNearby.join(' · ')} — ไม่แน่ใจว่าบ้านอยู่ในพื้นที่ไหม ทักมาถามได้เลย</p>
+  </div>
+</section>
