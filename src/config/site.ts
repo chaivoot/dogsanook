@@ -73,6 +73,7 @@ export const site = {
   // render as plain text (no link) in the footer / service-area section until
   // their page exists. Add a slug when a new zone page ships.
   zonePages: {
+    'กรุงเทพกรีฑา': '/dog-training-krungthepkritha',
     'รามคำแหง': '/dog-training-ramkhamhaeng',
     'ลาดกระบัง': '/dog-training-latkrabang',
     'พระราม 9': '/dog-training-rama9',

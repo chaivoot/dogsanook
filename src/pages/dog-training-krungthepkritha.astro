@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+
+// Zone landing page — กรุงเทพกรีฑา (primary focus zone). From the template.
+// Angle: upscale housing estates / homes with yards (vs พระราม 9's condo
+// angle) for unique copy. กรุงเทพกรีฑา sits in เขตสะพานสูง, whose sawasdeedog
+// pages are all populated: vet 4, grooming 11 (incl. a กรุงเทพกรีฑา branch),
+// cafe 3, park/pool 2 — so all four deep links point to saphan-sung.
+
+const zone = 'กรุงเทพกรีฑา';
+const pageUrl = `${site.domain}/dog-training-krungthepkritha`;
+
+const areas = [
+  'ถนนกรุงเทพกรีฑา · กรุงเทพกรีฑาตัดใหม่',
+  'สะพานสูง · ราษฎร์พัฒนา',
+  'หมู่บ้านจัดสรรย่านกรุงเทพกรีฑา',
+  'ประเวศ · พัฒนาการ (ต่อเนื่องกัน)',
+  'ศรีนครินทร์ · อ่อนนุช (ใกล้เคียง)',
+];
+
+const faqs = [
+  {
+    q: 'ครูฝึกถึงบ้านครอบคลุมพื้นที่ไหนบ้างแถวกรุงเทพกรีฑา?',
+    a: 'ครอบคลุมตลอดถนนกรุงเทพกรีฑาและกรุงเทพกรีฑาตัดใหม่ ทั้งโซนสะพานสูง ราษฎร์พัฒนา หมู่บ้านจัดสรรต่าง ๆ ไปจนถึงประเวศและพัฒนาการที่ต่อเนื่องกัน ไม่แน่ใจว่าบ้านอยู่ในพื้นที่ไหม ทักมาบอกพิกัดหรือชื่อหมู่บ้านได้เลย เช็กให้ครับ',
+  },
+  {
+    q: 'บ้านมีสนาม/พื้นที่อยู่แล้ว ยังต้องให้ครูมาสอนไหม?',
+    a: 'มีพื้นที่เป็นข้อได้เปรียบ แต่สิ่งที่น้องต้องการคือวิธีเรียนรู้ที่ถูก ครูจะพาฝึกในพื้นที่บ้านของน้องเอง และสอนให้เจ้าของเล่นไปฝึกไปต่อเองได้ ใช้สนามที่มีให้เกิดประโยชน์สูงสุด',
+  },
+  {
+    q: 'ราคาเท่าไหร่?',
+    a: 'คิดเป็นรายเคส เพราะน้องแต่ละตัวและเป้าหมายต่างกัน ทักมาเล่าเรื่องน้องทาง LINE ปรึกษาฟรี แล้วจะประเมินให้ว่าควรเริ่มยังไง',
+  },
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site.domain },
+    { '@type': 'ListItem', position: 2, name: `ฝึกสุนัขถึงบ้าน ${zone}`, item: pageUrl },
+  ],
+};
+
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `ฝึกสุนัขถึงบ้าน ${zone}`,
+  serviceType: 'ครูฝึกสุนัขถึงบ้าน',
+  description: `ครูฝึกสุนัขถึงบ้าน ย่าน${zone} สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ`,
+  provider: { '@id': `${site.domain}/#business` },
+  areaServed: { '@type': 'Place', name: `${zone} กรุงเทพฯ` },
+  url: pageUrl,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout
+  title={`รับฝึกสุนัขถึงบ้าน ${zone}–สะพานสูง | ครูฝึกหมาสไตล์เล่นไปฝึกไป | ${site.name}`}
+  description={`ครูฝึกสุนัขถึงบ้าน ย่าน${zone} สะพานสูง สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ สอนน้องเรียกแล้วมา ปูพื้นฐานลูกหมา มารยาทในบ้าน บริการถึงหมู่บ้านย่านกรุงเทพกรีฑา ปรึกษาฟรีทาง LINE`}
+  path="/dog-training-krungthepkritha"
+>
+  <Nav />
+
+  <!-- HERO -->
+  <header style="background:linear-gradient(180deg,#0E6360 0%,#0b4f4c 100%);color:#FBF8F1;padding:clamp(48px,7vw,92px) clamp(16px,4vw,48px);">
+    <div style="max-width:820px;margin:0 auto;text-align:center;">
+      <div style="font-size:13px;letter-spacing:.06em;color:#F4C13C;font-weight:700;margin-bottom:14px;">ครูฝึกสุนัขถึงบ้าน · โซนกรุงเทพกรีฑา</div>
+      <h1 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(28px,5.2vw,50px);line-height:1.2;margin:0 0 18px;color:#FBF8F1;">รับฝึกสุนัขถึงบ้าน ย่านกรุงเทพกรีฑา</h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.8;color:rgba(251,248,241,.92);margin:0 auto 10px;max-width:50ch;">คู่หูฝึกหมาถึงบ้านสไตล์ “เล่นไปฝึกไป” ไม่ดุ ไม่บังคับ — ครอบคลุมกรุงเทพกรีฑา สะพานสูง ราษฎร์พัฒนา และประเวศ</p>
+      <p style="font-size:15px;color:rgba(251,248,241,.8);margin:0 0 28px;">สอนถึงหน้าบ้าน ในที่ที่น้องใช้ชีวิตจริง</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;">แอด LINE ปรึกษาฟรี</a>
+        <a href="/#services" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#FBF8F1;font-weight:600;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.5);">ดูบริการ</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- COVERAGE -->
+    <section style="background:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px);">
+      <div style="max-width:900px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(24px,4vw,38px);line-height:1.25;margin:0 0 12px;color:#2A2521;">รับฝึกสุนัขถึงบ้าน โซนกรุงเทพกรีฑาและพื้นที่ใกล้เคียง</h2>
+        <p style="font-size:16px;color:#5a5249;line-height:1.8;margin:0 0 24px;max-width:60ch;">ย่านกรุงเทพกรีฑาเป็นโซนโฟกัสหลักที่ครูเดินทางถึงเป็นประจำ ครอบคลุมพื้นที่ต่อเนื่องกันดังนี้</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
+          {areas.map((a) => (
+            <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:14px;padding:16px 18px;font-size:15px;color:#2A2521;">{a}</div>
+          ))}
+        </div>
+        <p style="font-size:15px;color:#7c7266;line-height:1.75;margin:22px 0 0;">อยู่หมู่บ้านไหนย่านกรุงเทพกรีฑา บอกชื่อมาได้เลย เช็กให้ว่าครูไปถึงไหมครับ</p>
+      </div>
+    </section>
+
+    <!-- METHOD (short) -->
+    <section style="background:#E3F1EF;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px);">
+      <div style="max-width:720px;margin:0 auto;text-align:center;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.6vw,34px);line-height:1.3;margin:0 0 16px;color:#0E6360;">ฝึกสไตล์เล่นไปฝึกไป ในบ้านของน้องเอง</h2>
+        <p style="font-size:16px;line-height:1.85;color:#20302F;margin:0 auto;max-width:56ch;">เราไม่ดุ ไม่บังคับ แต่จัดสถานการณ์ให้น้องได้เลือกทำสิ่งที่ถูกเอง จนกลายเป็นนิสัย บ้านที่มีสนามหรือพื้นที่เป็นข้อได้เปรียบ ครูจะพาใช้พื้นที่ตรงนั้นฝึกให้เกิดประโยชน์สูงสุด และสอนให้เจ้าของเล่นไปฝึกไปต่อเองได้</p>
+      </div>
+    </section>
+
+    <!-- WHERE TO TRAIN IN THE ZONE -->
+    <section style="background:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px);">
+      <div style="max-width:820px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.8vw,36px);line-height:1.25;margin:0 0 12px;color:#2A2521;">อยากพาน้องออกไปฝึก/วิ่งเล่นนอกบ้านย่านกรุงเทพกรีฑา ไปไหนได้บ้าง</h2>
+        <p style="font-size:16px;color:#5a5249;line-height:1.8;margin:0 0 20px;max-width:62ch;">บางครั้งการพาน้องออกไปเจอสิ่งแวดล้อมใหม่ช่วยให้การฝึกก้าวหน้าขึ้น ย่านกรุงเทพกรีฑา–สะพานสูงมีทั้งลานวิ่ง สระว่ายน้ำหมา และคาเฟ่ที่พาน้องเข้าได้ แนะนำเลือกช่วงคนน้อย และเช็กกฎการพาสัตว์เข้าก่อนทุกครั้ง</p>
+        <ul style="font-size:15.5px;line-height:1.9;color:#2A2521;padding-left:22px;margin:0 0 22px;">
+          <li><strong>ลานวิ่ง &amp; สระว่ายน้ำหมา</strong> — ให้น้องได้ปล่อยพลังและออกกำลังอย่างปลอดภัย</li>
+          <li><strong>คาเฟ่/ร้านที่พาหมาเข้าได้</strong> — ฝึกให้น้องสงบและมีมารยาทในที่สาธารณะ</li>
+          <li><strong>พื้นที่ส่วนกลางของหมู่บ้าน</strong> ที่อนุญาตให้นำสัตว์เลี้ยงลงได้ — ใกล้บ้านและน้องคุ้นเคย</li>
+        </ul>
+        <div style="background:#E3F1EF;border-radius:16px;padding:22px 24px;">
+          <p style="font-size:16px;font-weight:700;color:#0E6360;margin:0 0 12px;">บริการสำหรับน้องย่านกรุงเทพกรีฑา–สะพานสูง</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="https://sawasdeedog.com/vet/bangkok/saphan-sung" target="_blank" rel="noopener" style="color:#0E6360;font-weight:700;text-decoration:none;">โรงพยาบาลสัตว์ &amp; คลินิก ย่านกรุงเทพกรีฑา–สะพานสูง →</a></li>
+            <li><a href="https://sawasdeedog.com/grooming/bangkok/saphan-sung" target="_blank" rel="noopener" style="color:#0E6360;font-weight:700;text-decoration:none;">ร้านอาบน้ำตัดขน ย่านกรุงเทพกรีฑา–สะพานสูง →</a> <span style="color:#5a5249;">มีหลายร้าน</span></li>
+            <li><a href="https://sawasdeedog.com/park/bangkok/saphan-sung" target="_blank" rel="noopener" style="color:#0E6360;font-weight:700;text-decoration:none;">ลานวิ่ง &amp; สระว่ายน้ำหมา →</a></li>
+            <li><a href="https://sawasdeedog.com/cafe/bangkok/saphan-sung" target="_blank" rel="noopener" style="color:#0E6360;font-weight:700;text-decoration:none;">คาเฟ่ &amp; ร้านที่พาหมาเข้าได้ →</a></li>
+          </ul>
+          <p style="font-size:13px;color:#7c7266;margin:12px 0 0;">ข้อมูลสถานที่จาก SawasdeeDog — แนะนำเช็กเวลาเปิดและกฎการพาสัตว์เข้าก่อนไปทุกครั้ง</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE -->
+    <section style="background:#F2E9D8;padding:clamp(44px,6vw,80px) clamp(16px,4vw,48px);">
+      <div style="max-width:820px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(22px,3.6vw,32px);line-height:1.3;margin:0 0 14px;color:#2A2521;">รับฝึกอะไรบ้าง</h2>
+        <p style="font-size:16px;line-height:1.8;color:#5a5249;margin:0 0 14px;max-width:60ch;">ปูพื้นฐานลูกหมา (นั่ง คอย เรียกมา) · มารยาทในบ้าน (เดินสายจูงไม่ดึง เข้าคอก กินข้าวเป็นเวลา) · เรียกกลับมา (recall) + เกม · ทริกและความสนุก</p>
+        <p style="font-size:14.5px;line-height:1.8;color:#6b6157;margin:0;background:#fff;border:1px dashed #8A6A18;border-radius:12px;padding:14px 18px;">ตอนนี้เน้นพื้นฐานและมารยาทของหมาทั่วไป — เคสก้าวร้าว กัด หรือระแวงรุนแรง ขอคุยเป็นเคสก่อนนะครับ</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background:#FBF8F1;padding:clamp(48px,7vw,88px) clamp(16px,4vw,48px);">
+      <div style="max-width:760px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.8vw,36px);line-height:1.25;margin:0 0 24px;color:#2A2521;text-align:center;">คำถามที่พบบ่อย · โซนกรุงเทพกรีฑา</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          {faqs.map((f) => (
+            <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:20px 22px;">
+              <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:17px;color:#2A2521;margin:0 0 8px;">{f.q}</h3>
+              <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0;">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="background:linear-gradient(180deg,#0E6360 0%,#0b4f4c 100%);color:#FBF8F1;padding:clamp(56px,8vw,100px) clamp(16px,4vw,48px);text-align:center;">
+      <div style="max-width:640px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(24px,4.2vw,42px);line-height:1.25;margin:0 0 16px;color:#FBF8F1;">พร้อมให้น้องเริ่มเล่นไปฝึกไปที่กรุงเทพกรีฑาหรือยัง?</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(251,248,241,.88);margin:0 auto 26px;max-width:44ch;">ทักมาเล่าเรื่องน้องได้เลย ปรึกษาฟรี แล้วเรานัดประเมินถึงบ้านกัน</p>
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 34px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;">แอด LINE ปรึกษาฟรี</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(service)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>
