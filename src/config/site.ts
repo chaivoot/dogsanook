@@ -74,6 +74,7 @@ export const site = {
   // their page exists. Add a slug when a new zone page ships.
   zonePages: {
     'รามคำแหง': '/dog-training-ramkhamhaeng',
+    'ลาดกระบัง': '/dog-training-latkrabang',
   } as Record<string, string>,
 
   // LINE Official Account = @dogsanook. Add-friend deep link.
