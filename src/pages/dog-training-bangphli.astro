@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import OtherZones from '../components/OtherZones.astro';
 import { site } from '../config/site';
 
 // Zone landing page — บางพลี, สมุทรปราการ. Province label must be สมุทรปราการ
@@ -146,6 +147,8 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <OtherZones current="/dog-training-bangphli" />
 
     <section style="background:linear-gradient(180deg,#0E6360 0%,#0b4f4c 100%);color:#FBF8F1;padding:clamp(56px,8vw,100px) clamp(16px,4vw,48px);text-align:center;">
       <div style="max-width:640px;margin:0 auto;">
