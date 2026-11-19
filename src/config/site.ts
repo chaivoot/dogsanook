@@ -134,7 +134,7 @@ export const site = {
 // SEO strings — based on CLAUDE.md §6, tuned to also carry the higher-volume
 // head terms "ฝึกสุนัข" / "ฝึกหมา" (paired with location for local intent).
 export const seo = {
-  title: 'รับฝึกสุนัขที่บ้าน กรุงเทพกรีฑา–รามคำแหง | ครูฝึกสุนัข หมาสนุก',
+  title: 'รับฝึกสุนัขที่บ้าน กรุงเทพฯ | ครูฝึกสุนัข หมาสนุก',
   description:
     'ครูฝึกสุนัขถึงบ้าน โซนกรุงเทพกรีฑา รามคำแหง — ฝึกหมาตามหลักวิทยาศาสตร์ ผ่านการเล่น ไม่ดุ ไม่บังคับ สอนน้องเรียกแล้วมา ปูพื้นฐานลูกหมา ปรึกษาฟรีทาง LINE',
   keywords: [
