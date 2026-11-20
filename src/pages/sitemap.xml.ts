@@ -9,6 +9,10 @@ export const GET: APIRoute = async () => {
     { loc: `${site.domain}/course`, priority: '0.8' },
     { loc: `${site.domain}/dog-trainer`, priority: '0.7' },
     { loc: `${site.domain}/mommam`, priority: '0.6' },
+    // Service hub pages (commercial-intent landing pages).
+    { loc: `${site.domain}/puppy-training`, priority: '0.9' },
+    // Zone landing pages — config-driven so new zones appear automatically.
+    ...Object.values(site.zonePages).map((p) => ({ loc: `${site.domain}${p}`, priority: '0.9' })),
     // /hand-target is intentionally excluded — it's a LINE-only gated guide (noindex).
     { loc: `${site.domain}/blog`, priority: '0.8' },
     { loc: `${site.domain}/terms`, priority: '0.3' },
