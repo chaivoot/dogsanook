@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+
+// Puppy-training service hub — targets the commercial keyword ฝึกลูกสุนัข /
+// ฝึกลูกหมา (in seo.keywords) with a dedicated page, and funnels the existing
+// puppy blog cluster. Positioned as a FOUNDATION puppy class (not advanced).
+// Game names are ours (CLAUDE.md §8 — rename, never use Susan's program names).
+// cue = "สัญญาณ" not "คำสั่ง" (§9).
+
+const pageUrl = `${site.domain}/puppy-training`;
+
+// Foundation skills the class covers.
+const basics = [
+  {
+    name: 'ฝึกขับถ่ายเป็นที่ (Potty Training)',
+    body: 'สอนให้น้องรู้ว่าควรฉี่/อึตรงไหน ลดอุบัติเหตุในบ้าน ด้วยการจัดสภาพแวดล้อม + ให้รางวัลเมื่อทำถูกที่',
+  },
+  {
+    name: 'ฝึกใส่ฮาร์เนส & เดินสายจูง (Harness Training)',
+    body: 'ให้น้องคุ้นและรู้สึกดีกับฮาร์เนส/สายจูงตั้งแต่เด็ก พร้อมพื้นฐานเดินไม่ดึง ไม่ต้องฝืน ไม่ต้องลาก',
+  },
+];
+
+// Core games of the puppy class (our own names).
+const games = [
+  {
+    name: 'Human Touch',
+    body: 'ให้น้องรู้สึกดีกับการถูกจับตัว สัมผัส และตรวจร่างกาย — พื้นฐานที่ทำให้ตัดเล็บ หาหมอ อาบน้ำ ง่ายขึ้นในอนาคต',
+  },
+  {
+    name: 'Smart Choices',
+    body: 'สอนให้น้องรู้จักยับยั้งใจและ "เลือก" ทำสิ่งที่ถูกเอง ไม่ใช่เพราะถูกสั่ง — หัวใจของการฝึกให้หมาคิดเป็น',
+  },
+  {
+    name: 'Safe Zone',
+    body: 'สร้างจุด/เบาะที่เป็น "พื้นที่ปลอดภัย" ของน้อง ที่เขาไปสงบและผ่อนคลายได้เองเมื่อเจอสิ่งเร้า',
+  },
+  {
+    name: 'Safe House',
+    body: 'ทำให้คอก/กรงเป็น "บ้าน" ที่น้องรักและเดินเข้าไปอยู่เองอย่างมีความสุข ไม่ใช่ที่กักขังที่น่ากลัว',
+  },
+  {
+    name: 'Hand Target',
+    body: 'สอนน้องเอาจมูกมาแตะฝ่ามือ สัญญาณพื้นฐานที่ต่อยอดไปเป็นทริกและการเรียกกลับได้อีกเยอะ',
+  },
+];
+
+const puppyReads = [
+  { t: 'ลูกหมาวันแรกที่บ้าน ต้องเตรียมอะไรบ้าง', href: '/blog/puppy-first-days' },
+  { t: 'ลูกหมาชอบกัดมือ แก้ยังไงให้ถูกวิธี', href: '/blog/puppy-biting' },
+  { t: 'ฝึกลูกหมาขับถ่ายเป็นที่', href: '/blog/potty-training-puppy' },
+  { t: 'ฝึกฉี่บนแผ่นรอง (potty tray)', href: '/blog/puppy-potty-tray-training' },
+  { t: 'สอนลูกหมารู้จัก hand target', href: '/blog/hand-target-puppy' },
+  { t: 'ทำไมคอกคือเพื่อนของลูกหมา ไม่ใช่คุก', href: '/blog/crate-training' },
+];
+
+const faqs = [
+  {
+    q: 'ลูกสุนัขเริ่มฝึกได้ตั้งแต่กี่เดือน?',
+    a: 'เริ่มได้เร็วกว่าที่หลายคนคิด ช่วงลูกหมา (ประมาณ 8–16 สัปดาห์) เป็นช่วงทองของการเรียนรู้และการเข้าสังคม ยิ่งปูพื้นฐานที่ดีเร็วเท่าไหร่ ยิ่งง่ายในระยะยาว เราฝึกแบบเล่น ๆ เหมาะกับวัย ไม่หักโหม',
+  },
+  {
+    q: 'ยังฉีดวัคซีนไม่ครบ ฝึกได้ไหม?',
+    a: 'การฝึกพื้นฐานในบ้านเริ่มได้เลยเพราะความเสี่ยงต่ำ (อยู่ในบ้านตัวเอง) ส่วนการพาออกไปเจอหมาตัวอื่น/ที่สาธารณะ แนะนำให้วัคซีนครบก่อน ช่วงนี้เราเน้นปูพื้นฐานและเข้าสังคมอย่างปลอดภัยที่บ้านไปก่อน',
+  },
+  {
+    q: 'คลาสลูกสุนัขสอนอะไรบ้าง สอนทริกขั้นสูงเลยไหม?',
+    a: 'คลาสนี้โฟกัส "พื้นฐานที่สำคัญที่สุด" ของช่วงลูกหมา — ขับถ่ายเป็นที่ ใส่ฮาร์เนส เข้าสังคม และเกมพื้นฐาน (Human Touch, Smart Choices, Safe Zone, Safe House, Hand Target) ยังไม่รวมทริก/ทักษะขั้นสูง ค่อยต่อยอดทีหลังเมื่อพื้นฐานแน่นแล้ว',
+  },
+  {
+    q: 'ราคาเท่าไหร่?',
+    a: 'คิดเป็นรายเคส เพราะลูกหมาแต่ละตัวและเป้าหมายต่างกัน ทักมาเล่าเรื่องน้องทาง LINE ปรึกษาฟรี แล้วเราจะประเมินให้ว่าควรเริ่มยังไง',
+  },
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site.domain },
+    { '@type': 'ListItem', position: 2, name: 'ฝึกลูกสุนัขถึงบ้าน', item: pageUrl },
+  ],
+};
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'ฝึกลูกสุนัขถึงบ้าน (คลาสลูกสุนัข)',
+  serviceType: 'ครูฝึกลูกสุนัขถึงบ้าน',
+  description:
+    'คลาสลูกสุนัขถึงบ้าน ปูพื้นฐานสไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — ขับถ่ายเป็นที่ ใส่ฮาร์เนส เข้าสังคม และเกมพื้นฐาน',
+  provider: { '@id': `${site.domain}/#business` },
+  areaServed: { '@type': 'City', name: 'กรุงเทพมหานคร' },
+  url: pageUrl,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout
+  title={`รับฝึกลูกสุนัขถึงบ้าน กรุงเทพฯ — คลาสลูกสุนัขสไตล์เล่นไปฝึกไป | ${site.name}`}
+  description="รับฝึกลูกสุนัขถึงบ้าน กรุงเทพฯ สไตล์เล่นไปฝึกไป ไม่ดุ ไม่บังคับ — คลาสลูกสุนัขเน้นพื้นฐาน ขับถ่ายเป็นที่ ใส่ฮาร์เนส เข้าสังคม และเกมพื้นฐาน ปรึกษาฟรีทาง LINE"
+  path="/puppy-training"
+>
+  <Nav />
+
+  <!-- HERO -->
+  <header style="background:linear-gradient(180deg,#0E6360 0%,#0b4f4c 100%);color:#FBF8F1;padding:clamp(48px,7vw,92px) clamp(16px,4vw,48px);">
+    <div style="max-width:820px;margin:0 auto;text-align:center;">
+      <div style="font-size:13px;letter-spacing:.06em;color:#F4C13C;font-weight:700;margin-bottom:14px;">ครูฝึกลูกสุนัขถึงบ้าน · หมาสนุก</div>
+      <h1 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(28px,5.2vw,50px);line-height:1.2;margin:0 0 18px;color:#FBF8F1;">รับฝึกลูกสุนัขถึงบ้าน กรุงเทพฯ</h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.8;color:rgba(251,248,241,.92);margin:0 auto 10px;max-width:52ch;">คลาสลูกสุนัขสไตล์ “เล่นไปฝึกไป” ไม่ดุ ไม่บังคับ — ปูพื้นฐานที่สำคัญที่สุดในช่วงลูกหมา ให้เริ่มต้นถูกตั้งแต่วันแรก</p>
+      <p style="font-size:15px;color:rgba(251,248,241,.8);margin:0 0 28px;">📍 ฝึกถึงบ้าน กรุงเทพฯ โซนตะวันออก–ตะวันออกเฉียงใต้</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;">แอด LINE ปรึกษาฟรี</a>
+        <a href="/#services" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#FBF8F1;font-weight:600;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;border:2px solid rgba(251,248,241,.5);">ดูบริการทั้งหมด</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- WHEN TO START -->
+    <section style="background:#FBF8F1;padding:clamp(44px,6vw,80px) clamp(16px,4vw,48px);">
+      <div style="max-width:760px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(24px,4vw,38px);line-height:1.25;margin:0 0 14px;color:#2A2521;">ลูกสุนัขเริ่มฝึกเมื่อไหร่ดี?</h2>
+        <p style="font-size:16px;color:#5a5249;line-height:1.85;margin:0 0 14px;max-width:62ch;">คำตอบคือ <strong style="color:#2A2521;">เร็วกว่าที่หลายคนคิด</strong> ช่วงลูกหมา (ราว 8–16 สัปดาห์) คือ “ช่วงทอง” ที่สมองน้องเปิดรับการเรียนรู้และการเข้าสังคมมากที่สุด สิ่งที่ปูไว้ดีในช่วงนี้จะติดตัวไปยาว ๆ</p>
+        <p style="font-size:16px;color:#5a5249;line-height:1.85;margin:0;max-width:62ch;">เราเลยไม่รอให้น้องโตก่อน แต่เริ่มปูพื้นฐานแบบเล่น ๆ เหมาะกับวัย ไม่หักโหม ไม่ดุ ไม่บังคับ — ให้การฝึกเป็นเรื่องสนุกตั้งแต่ครั้งแรก</p>
+      </div>
+    </section>
+
+    <!-- THE CLASS: foundation, not advanced -->
+    <section style="background:#E3F1EF;padding:clamp(44px,6vw,80px) clamp(16px,4vw,48px);">
+      <div style="max-width:900px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.8vw,36px);line-height:1.25;margin:0 0 10px;color:#0E6360;">คลาสลูกสุนัข — เน้นปูพื้นฐาน</h2>
+        <p style="font-size:16px;color:#2f6361;line-height:1.8;margin:0 0 28px;max-width:60ch;">คลาสนี้โฟกัส <strong>พื้นฐานที่สำคัญที่สุด</strong> ของช่วงลูกหมา <strong>ยังไม่รวมทริกหรือทักษะขั้นสูง</strong> — เพราะพื้นฐานที่แน่นคือรากที่ทำให้ทุกอย่างต่อยอดง่ายทีหลัง</p>
+
+        <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:19px;color:#2A2521;margin:0 0 14px;">พื้นฐานที่ได้</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:0 0 32px;">
+          {basics.map((b) => (
+            <div style="background:#fff;border:1px solid rgba(23,140,136,.18);border-radius:16px;padding:18px 20px;">
+              <div style="font-family:'Prompt',sans-serif;font-weight:700;font-size:16px;color:#0E6360;margin:0 0 6px;">{b.name}</div>
+              <div style="font-size:14.5px;color:#5a5249;line-height:1.7;">{b.body}</div>
+            </div>
+          ))}
+        </div>
+
+        <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:19px;color:#2A2521;margin:0 0 14px;">เกมหลักของคลาส</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+          {games.map((g) => (
+            <div style="background:#fff;border:1px solid rgba(23,140,136,.18);border-radius:16px;padding:18px 20px;">
+              <div style="font-family:'Prompt',sans-serif;font-weight:700;font-size:16px;color:#178C88;margin:0 0 6px;">{g.name}</div>
+              <div style="font-size:14.5px;color:#5a5249;line-height:1.7;">{g.body}</div>
+            </div>
+          ))}
+        </div>
+        <p style="font-size:14.5px;color:#2f6361;line-height:1.75;margin:24px 0 0;">ทุกเกมเป็น “สัญญาณ” ที่น้องเลือกทำเอง เพราะสนุกและคุ้มค่า ไม่ใช่คำสั่งที่ถูกบังคับ</p>
+      </div>
+    </section>
+
+    <!-- PUPPY BLOG CLUSTER -->
+    <section style="background:#FBF8F1;padding:clamp(44px,6vw,80px) clamp(16px,4vw,48px);">
+      <div style="max-width:820px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.8vw,36px);line-height:1.25;margin:0 0 20px;color:#2A2521;">อ่านเพิ่มเรื่องลูกหมา ก่อนครูไปถึงบ้าน</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
+          {puppyReads.map((p) => (
+            <a href={p.href} style="display:block;background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:14px;padding:16px 18px;font-size:15px;font-weight:600;color:#0E6360;text-decoration:none;">{p.t} →</a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE -->
+    <section style="background:#F2E9D8;padding:clamp(40px,5.5vw,72px) clamp(16px,4vw,48px);">
+      <div style="max-width:760px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(22px,3.6vw,32px);line-height:1.3;margin:0 0 14px;color:#2A2521;">รับฝึกลูกหมาทั่วไป</h2>
+        <p style="font-size:14.5px;line-height:1.8;color:#6b6157;margin:0;background:#fff;border:1px dashed #8A6A18;border-radius:12px;padding:14px 18px;">ตอนนี้เน้นปูพื้นฐานและมารยาทของลูกหมาทั่วไป — เคสก้าวร้าว กัด หรือระแวงรุนแรง ขอคุยเป็นเคสก่อนนะครับ</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background:#FBF8F1;padding:clamp(44px,6vw,80px) clamp(16px,4vw,48px);">
+      <div style="max-width:760px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(23px,3.8vw,36px);line-height:1.25;margin:0 0 24px;color:#2A2521;text-align:center;">คำถามที่พบบ่อย · ฝึกลูกสุนัข</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          {faqs.map((f) => (
+            <div style="background:#fff;border:1px solid rgba(140,120,80,.16);border-radius:16px;padding:20px 22px;">
+              <h3 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:17px;color:#2A2521;margin:0 0 8px;">{f.q}</h3>
+              <p style="font-size:15px;color:#6b6157;line-height:1.75;margin:0;">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="background:linear-gradient(180deg,#0E6360 0%,#0b4f4c 100%);color:#FBF8F1;padding:clamp(48px,7vw,84px) clamp(16px,4vw,48px);text-align:center;">
+      <div style="max-width:640px;margin:0 auto;">
+        <h2 style="font-family:'Prompt',sans-serif;font-weight:700;font-size:clamp(24px,4.2vw,42px);line-height:1.25;margin:0 0 16px;color:#FBF8F1;">พร้อมเริ่มต้นให้ลูกหมาถูกทางตั้งแต่วันแรกหรือยัง?</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(251,248,241,.88);margin:0 auto 26px;max-width:46ch;">ทักมาเล่าเรื่องน้องได้เลย ปรึกษาฟรี แล้วเรานัดประเมินถึงบ้านกัน</p>
+        <a href={site.lineUrl} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#F4C13C;color:#20302F;font-weight:700;font-size:18px;padding:16px 34px;border-radius:999px;text-decoration:none;box-shadow:0 6px 0 #DFA714;">แอด LINE ปรึกษาฟรี</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(service)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</BaseLayout>
