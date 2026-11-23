@@ -4,6 +4,7 @@
  */
 import '../styles/tokens.css';
 import SeoSchema from '../components/SeoSchema.astro';
+import StickyLineCTA from '../components/StickyLineCTA.astro';
 import { seo as defaultSeo, site } from '../config/site';
 
 interface Props {
@@ -107,6 +108,7 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
   </head>
   <body>
     <slot />
+    <StickyLineCTA />
 
     <!-- Scroll-reveal (respects prefers-reduced-motion; CSS guarantees the
          reduced-motion fallback so content is never hidden without JS). -->
