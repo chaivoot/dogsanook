@@ -82,9 +82,27 @@ const ogImageAbs = new URL(ogImage, site.domain).href;
         document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', gaId, { client_storage: 'none' });
       }
+    </script>
+
+    {/* Lead-conversion tracking: fire a GA4 event when anyone clicks a LINE
+        or phone CTA (any button, any page). Mark add_line / phone_call as key
+        events in GA4 and import them into Google Ads as conversions so Ads can
+        optimise for real leads. No-op unless GA is active (live domain). */}
+    <script>
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a || !window.gtag) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('line.me') > -1 || href.indexOf('@dogsanook') > -1) {
+          window.gtag('event', 'add_line', { cta_location: location.pathname });
+        } else if (href.indexOf('tel:') === 0) {
+          window.gtag('event', 'phone_call', { cta_location: location.pathname });
+        }
+      }, true);
     </script>
   </head>
   <body>
